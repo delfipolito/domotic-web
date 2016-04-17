@@ -9,7 +9,9 @@ var router       = require('../router');
 var lights       = '';
 var tvs          = '';
 var alarms       = '';
+var motionSensors      = '';
 var temperatureSensors = '';
+var humiditySensors    = '';
 
 var Store = assign({}, EventEmitter.prototype, {
 
@@ -33,8 +35,14 @@ var Store = assign({}, EventEmitter.prototype, {
   getAlarms: function  () {
     return alarms;
   },
+  getMotionSensors: function  () {
+    return motionSensors;
+  },
   getTemperatureSensors: function  () {
     return temperatureSensors;
+  },
+  getHumiditySensors: function  () {
+    return humiditySensors;
   },
 
 
@@ -52,24 +60,35 @@ Store.dispatchToken = Dispatcher.register(function(payload) {
     break;
     case ActionTypes.SHOW_LIGHTS:
       console.log("lightss", action.res.lights);
-      lights = action.res.lights; 
+      lights = action.res.lights;
       Store.emitChange();
     break;
     case ActionTypes.SHOW_TVS:
       console.log("tvs", action.res.tvs);
-      tvs = action.res.tvs; 
+      tvs = action.res.tvs;
       Store.emitChange();
     break;
     case ActionTypes.SHOW_ALARMS:
       console.log("alarms", action.res.alarms);
-      alarms = action.res.alarms; 
+      alarms = action.res.alarms;
       Store.emitChange();
     break;
+
     case ActionTypes.SHOW_TEMPERATURE_SENSORS:
       console.log("temperature_sensors", action.res.temperature_sensors);
-      temperatureSensors = action.res.temperature_sensors; 
+      temperatureSensors = action.res.temperature_sensors;
       Store.emitChange();
     break;
+    case ActionTypes.SHOW_HUMIDITY_SENSORS:
+      console.log("humidity_sensors", action.res.humidity_sensors);
+      humiditySensors = action.res.humidity_sensors;
+      Store.emitChange();
+    break;
+    case ActionTypes.SHOW_MOTION_SENSORS:
+      motionSensors = action.res.motion_sensors;
+      Store.emitChange();
+    break;
+
     default:
       // do nothing
   }

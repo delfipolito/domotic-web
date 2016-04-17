@@ -1,5 +1,5 @@
 var keyMirror = require('keymirror');
-var Root      = "http://mlnwidjgpd.localtunnel.me//api/v1/";
+var Root      = "http://10.0.0.6:3000/api/v1/";
 var APIRoot   = Root + "/web";
 
 module.exports = {
@@ -10,6 +10,8 @@ module.exports = {
     SHOW_TVS: null,
     SHOW_ALARMS: null,
     SHOW_TEMPERATURE_SENSORS: null,
+    SHOW_MOTION_SENSORS: null,
+    SHOW_HUMIDITY_SENSORS: null,
   }),
 
   PayloadSources: keyMirror({
