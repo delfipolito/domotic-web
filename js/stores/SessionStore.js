@@ -30,7 +30,6 @@ var SessionStore = assign({}, EventEmitter.prototype, {
   },
 
   isLoggedIn: function() {
-    console.log("log", localStorage.getItem('Authorization'));
     return (localStorage.getItem('Authorization')) ? true : false;
   },
 

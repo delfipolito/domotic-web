@@ -26,11 +26,9 @@ module.exports = React.createClass({
     SessionStore.removeChangeListener(this._onChange);
   },
   _onChange: function() {
-    console.log("change");
   },
   onClickLights:function  (e) {
     e.preventDefault();
-    console.log("click light");
     redirect('lights');
   },
 
@@ -67,12 +65,12 @@ module.exports = React.createClass({
 
 
                 <ul className="nav navbar-nav navbar-right">
+                  <li className="icons" onClick={this.onClickAlarms}><a className="roundIcon security" href="#"></a></li>
+                  <li className="icons"><a className="roundIcon water" href="#"></a></li>
+                  <li className="icons" onClick={this.onClickLights}><a className="roundIcon light" href="#"></a></li>
                   <li className="icons" onClick={this.onClickTvs}><a className="roundIcon tv" href="#"></a></li>
                   <li className="icons" onClick={this.onClickTemperatureSensors}><a className="roundIcon temperature" href="#"></a></li>
-                  <li className="icons"><a className="roundIcon water" href="#"></a></li>
-                  <li className="icons" onClick={this.onClickAlarms}><a className="roundIcon security" href="#"></a></li>
                   <li className="icons"><a className="roundIcon video" href="#"></a></li>
-                  <li className="icons" onClick={this.onClickLights}><a className="roundIcon light" href="#"></a></li>
                   <li className="dropdown icons">
                     <a href="#" className="dropdown-toggle roundIcon user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
                     <ul className="dropdown-menu">
