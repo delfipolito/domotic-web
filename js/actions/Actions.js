@@ -27,6 +27,9 @@ module.exports = {
 
 
 // ELEMENTOS
+	getRooms: function() {
+		DomoticAPIUtils.getRooms();
+	},
 
 	getLights: function() {
 		DomoticAPIUtils.getLights();

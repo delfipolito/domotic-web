@@ -49,6 +49,7 @@ body{
 	font-size: 17px;
 	color: #4a4a4a;
 	text-align: center;
+  text-transform: uppercase;
 }
 .noPadding{
 	padding: 0px;
@@ -130,6 +131,9 @@ body{
 }
 .video{
 	background-image: url('../images/menuVideo.png');
+}
+.home{
+	background-image: url('../images/menuHome.png');
 }
 .security{
 	background-image: url('../images/menuSecurity.png');
@@ -337,4 +341,15 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 .notSelected{
   color: grey;
   cursor: pointer;
+}
+
+
+/*ROOMS*/
+
+.roomContainer{
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 10px;
+  border: solid 2px #E8E6E6;
+  padding: 30px;
 }

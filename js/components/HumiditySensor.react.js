@@ -26,12 +26,13 @@ module.exports = React.createClass({
 
 		return(
     		<div className="row list">
-                <div className="col-xs-4 col-sm-2">
-                    <button className='onOff humidityOff'></button>
-                </div>
-                <div className="col-xs-6 col-sm-9 noPadding">
+
+                <div className="col-xs-6 col-sm-9 ">
                     <p className="name">{humiditySensor.name}</p>
                     <p className="description">{humiditySensor.room_name}</p>
+                </div>
+                <div className="col-xs-4 col-sm-2">
+                    <button className='onOff humidityOff'></button>
                 </div>
                 <div className="col-xs-2 col-sm-1 noPadding">
                     <p className="name">{humiditySensor.humidity} %</p>

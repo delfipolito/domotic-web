@@ -6,6 +6,7 @@ module.exports = {
 
   ActionTypes: keyMirror({
     REDIRECT: null,
+    SHOW_ROOMS: null,
     SHOW_LIGHTS: null,
     SHOW_TVS: null,
     SHOW_ALARMS: null,

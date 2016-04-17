@@ -44,6 +44,10 @@ module.exports = React.createClass({
     e.preventDefault();
     redirect('temperatureSensors');
   },
+  onClickRooms:function  (e) {
+    e.preventDefault();
+    redirect('rooms');
+  },
 
 
 
@@ -70,7 +74,7 @@ module.exports = React.createClass({
                   <li className="icons" onClick={this.onClickLights}><a className="roundIcon light" href="#"></a></li>
                   <li className="icons" onClick={this.onClickTvs}><a className="roundIcon tv" href="#"></a></li>
                   <li className="icons" onClick={this.onClickTemperatureSensors}><a className="roundIcon temperature" href="#"></a></li>
-                  <li className="icons"><a className="roundIcon video" href="#"></a></li>
+                  <li className="icons" onClick={this.onClickRooms}><a className="roundIcon home" href="#"></a></li>
                   <li className="dropdown icons">
                     <a href="#" className="dropdown-toggle roundIcon user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
                     <ul className="dropdown-menu">
