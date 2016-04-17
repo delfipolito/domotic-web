@@ -22,19 +22,19 @@ module.exports = React.createClass({
     },
 
 	render: function() {
-        var temperatureSensor = this.props.temperatureSensor;
+        var humiditySensor = this.props.humiditySensor;
 
 		return(
     		<div className="row list">
                 <div className="col-xs-4 col-sm-2">
-                    <button className='onOff temperatureOff'></button>
+                    <button className='onOff humidityOff'></button>
                 </div>
                 <div className="col-xs-6 col-sm-9 noPadding">
-                    <p className="name">{temperatureSensor.name}</p>
-                    <p className="description">{temperatureSensor.room_name}</p>
+                    <p className="name">{humiditySensor.name}</p>
+                    <p className="description">{humiditySensor.room_name}</p>
                 </div>
                 <div className="col-xs-2 col-sm-1 noPadding">
-                    <p className="name">{temperatureSensor.temperature} ºC</p>
+                    <p className="name">{humiditySensor.humidity} %</p>
                 </div>
             </div>
 		)
