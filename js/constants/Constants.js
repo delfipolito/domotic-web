@@ -1,5 +1,5 @@
 var keyMirror = require('keymirror');
-var Root      = "http://10.0.0.6:3000/api/v1/";
+var Root      = "http://192.168.0.17:3000/api/v1/";
 var APIRoot   = Root + "/web";
 
 module.exports = {

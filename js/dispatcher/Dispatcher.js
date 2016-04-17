@@ -1,16 +1,11 @@
-var Constants  = require('../constants/Constants');
+var Constants      = require('../constants/Constants');
 var Dispatcher     = require('flux').Dispatcher;
 var assign         = require('object-assign');
 var PayloadSources = Constants.PayloadSources;
 
-var Dispatcher = assign(new Dispatcher(), {
+var Dispatcher     = assign(new Dispatcher(), {
 
-  /**
-   * @param {object} action The details of the action, including the action's
-   * type and additional data coming from the server.
-   */
   handleServerAction: function(action) {
-    console.log("dispatch2");
     var payload = {
       source: PayloadSources.SERVER_ACTION,
       action: action
@@ -18,12 +13,8 @@ var Dispatcher = assign(new Dispatcher(), {
     this.dispatch(payload);
   },
 
-  /**
-   * @param {object} action The details of the action, including the action's
-   * type and additional data coming from the view.
-   */
+
   handleViewAction: function(action) {
-    console.log("dispatch1");
     var payload = {
       source: PayloadSources.VIEW_ACTION,
       action: action

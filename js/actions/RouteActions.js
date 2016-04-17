@@ -8,7 +8,6 @@ var ActionTypes = Constants.ActionTypes;
 module.exports = {
 
   redirect: function(route) {
-  	console.log("redirect");
     Dispatcher.handleViewAction({
       actionType: ActionTypes.REDIRECT,
       route: route

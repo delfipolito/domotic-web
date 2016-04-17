@@ -24,11 +24,10 @@ var RouteStore = assign({}, EventEmitter.prototype, {
   getRouter: function() {
     return router;
   }
-  
+
 });
 
 RouteStore.dispatchToken = Dispatcher.register(function(payload) {
-  console.log("p", payload);
   var action = payload.action;
   switch(action.actionType) {
 
@@ -36,7 +35,6 @@ RouteStore.dispatchToken = Dispatcher.register(function(payload) {
       router.transitionTo(action.route);
       RouteStore.emitChange();
     break;
-
 
   }
 

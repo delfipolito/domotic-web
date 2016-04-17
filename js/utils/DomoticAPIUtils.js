@@ -126,6 +126,20 @@ module.exports = {
 
       });
   },
+	createAlarm: function(data) {
+		console.log("in api utils", data.motion_sensors_ids);
+    request
+			.post(APIEndpoints.PUBLIC + 'alarms/')
+			.send({alarm: {name: data.name, description: data.description, motion_sensors_ids: data.motion_sensors_ids}})
+			.set('Accept', 'application/json')
+			.set('Authorization', localStorage.getItem('Authorization'))
+			.end(function(res) {
+				var text = JSON.parse(res.text);
+				var code = JSON.parse(res.status);
+					redirect('alarms');
+
+      });
+  },
   enableAlarm: function(id) {
     request
       .post(APIEndpoints.PUBLIC + 'alarms/' + id +'/enable')

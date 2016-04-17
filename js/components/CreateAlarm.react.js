@@ -1,9 +1,10 @@
-var React           = require('react');
-var router          = require('../router');
-var getSensors      = require('../actions/Actions').getMotionSensors;
-var Store           = require('../stores/Store');
-var ActivateSensor           = require('./ActivateSensor.react');
-var redirect        = require('../actions/RouteActions').redirect;
+var React              = require('react');
+var router             = require('../router');
+var getSensors         = require('../actions/Actions').getMotionSensors;
+var Store              = require('../stores/Store');
+var ActivateSensor     = require('./ActivateSensor.react');
+var redirect           = require('../actions/RouteActions').redirect;
+var createAlarm        = require('../actions/Actions').createAlarm;
 
 module.exports = React.createClass({
 
@@ -23,7 +24,17 @@ module.exports = React.createClass({
   componentWillUnmount: function() {
     Store.removeChangeListener(this._onChange);
   },
+  _onSubmit: function(e) {
+        e.preventDefault();
 
+        var form   = e.target.elements;
+        var data   = {};
+        data.name = form.name.value;
+        data.description = form.description.value;
+        data.motion_sensors_ids = this.state.sensorsInAlarm;
+
+        createAlarm(data);
+  },
 
   _onChange: function() {
     var sensors = Store.getMotionSensors();
@@ -55,7 +66,6 @@ module.exports = React.createClass({
 
   render: function() {
     var sensors = this.state.sensors;
-    console.log("sen", this.state.sensors);
     var allSensors = [];
 
     for (var key in sensors) {
@@ -66,32 +76,32 @@ module.exports = React.createClass({
     return(
       <div className="">
         <div className="container">
-          <button className="goBackButton " onClick={this.goBack}>Volver</button>
-          <br/>
-          <div className="whiteBox">
-            <p className="title">CREAR NUEVA ALARMA</p>
-            <hr/>
-              <div className="input-field col-xs-6  col-xs-offset-3 ">
-                <input id="name" type="text" className="formText"/>
-                <label for="name">Nombre de la alarma</label>
-              </div>
-              <br/>
-              <div className="input-field col-xs-6  col-xs-offset-3 ">
-                <input id="description" type="text" className="formText"/>
-                <label for="description">Descripción de la alarma</label>
-              </div>
-              <div className="input-field col-xs-6  col-xs-offset-3 ">
+          <form onSubmit={this._onSubmit}>
+            <button className="goBackButton " onClick={this.goBack}>Volver</button>
+            <br/>
+            <div className="whiteBox">
+              <p className="title">CREAR NUEVA ALARMA</p>
+              <hr/>
+                <div className="input-field col-xs-6  col-xs-offset-3 ">
+                  <input id="name" type="text" className="formText"/>
+                  <label for="name">Nombre de la alarma</label>
+                </div>
                 <br/>
-                <p className="leftTitle">Seleccionar sensores</p>
-                <div className="noPadding col-xs-12 ">{allSensors}</div>
-                <br/>
-              </div>
-              <div className="input-field col-xs-6  col-xs-offset-3 centered">
-                <button className="newElementButton centered" onClick={this.newAlarm}>Crear</button>
-              </div>
-
-
-          </div>
+                <div className="input-field col-xs-6  col-xs-offset-3 ">
+                  <input id="description" type="text" className="formText"/>
+                  <label for="description">Descripción de la alarma</label>
+                </div>
+                <div className="input-field col-xs-6  col-xs-offset-3 ">
+                  <br/>
+                  <p className="leftTitle">Seleccionar sensores:</p>
+                  <div className="noPadding col-xs-12 ">{allSensors}</div>
+                  <br/>
+                </div>
+                <div className="input-field col-xs-6  col-xs-offset-3 centered">
+                  <button type="submit" className="newElementButton centered" onClick={this.newAlarm}>Crear</button>
+                </div>
+             </div>
+          </form>
         </div>
       </div>
     )

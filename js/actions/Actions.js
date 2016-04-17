@@ -10,6 +10,9 @@ module.exports = {
 	getAlarms: function() {
 		DomoticAPIUtils.getAlarms();
 	},
+	createAlarm: function(data) {
+		DomoticAPIUtils.createAlarm(data);
+	},
 
 	// SENSORES
 	getMotionSensors: function() {
