@@ -3,6 +3,7 @@ var router          = require('../router');
 var getAlarms       = require('../actions/Actions').getAlarms;
 var Store           = require('../stores/Store');
 var Alarm           = require('./Alarm.react.js');
+var redirect        = require('../actions/RouteActions').redirect;
 
 module.exports = React.createClass({
 
@@ -29,8 +30,10 @@ module.exports = React.createClass({
       alarms: alarms,
     });
   },
+  newAlarm: function () {
+    redirect('create_alarm');
+  },
 
-  
 
   render: function() {
     var alarms = this.state.alarms;
@@ -39,11 +42,14 @@ module.exports = React.createClass({
     for (var key in alarms) {
       allAlarms.push(<Alarm key={key} alarm={alarms[key]} />);
     }
-      
-    
+
     return(
       <div className="">
         <div className="container">
+          <button className="newElementButton pull-right" onClick={this.newAlarm}>+ Nueva alarma</button>
+          <br/>
+          <br/>
+          <br/>
           <div className="whiteBox">
             <p className="title">ALARMAS Y SENSORES DE MOVIMIENTO DE LA CASA</p>
             <hr/>

@@ -21,9 +21,21 @@ module.exports = {
 			res: alarms
 		});
 	},
+	showMotionSensors: function(sensors) {
+		Dispatcher.handleServerAction({
+			actionType: ActionTypes.SHOW_MOTION_SENSORS,
+			res: sensors
+		});
+	},
 	showTemperatureSensors: function(alarms) {
 		Dispatcher.handleServerAction({
 			actionType: ActionTypes.SHOW_TEMPERATURE_SENSORS,
+			res: alarms
+		});
+	},
+	showHumiditySensors: function(alarms) {
+		Dispatcher.handleServerAction({
+			actionType: ActionTypes.SHOW_HUMIDITY_SENSORS,
 			res: alarms
 		});
 	},
