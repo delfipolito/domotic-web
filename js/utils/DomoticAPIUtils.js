@@ -8,7 +8,8 @@ var showRooms           = require('../actions/ServerActions').showRooms;
 var showLights          = require('../actions/ServerActions').showLights;
 var showTvs             = require('../actions/ServerActions').showTvs;
 var showAlarms          = require('../actions/ServerActions').showAlarms;
-var showMotionSensors   = require('../actions/ServerActions').showMotionSensors;
+var showIrrigationSistems  = require('../actions/ServerActions').showIrrigationSistems;
+var showMotionSensors      = require('../actions/ServerActions').showMotionSensors;
 var showTemperatureSensors = require('../actions/ServerActions').showTemperatureSensors;
 var showHumiditySensors    = require('../actions/ServerActions').showHumiditySensors;
 
@@ -21,9 +22,8 @@ module.exports = {
       .set('Accept', 'application/json')
       .end(function(res) {
         var atoken= res.xhr.getResponseHeader("Authorization");
-        localStorage.setItem('Authorization', atoken,res.xhr.getAllResponseHeaders() );
+        localStorage.setItem('Authorization', res.xhr.getAllResponseHeaders() );
         redirect('lights');
-
       }.bind(this));
   },
 
@@ -195,6 +195,48 @@ module.exports = {
           showMotionSensors(text);
 
       });
+  },
+
+	// IRRIGATION SYSTEMS
+  getIrrigationSystems: function() {
+    request
+      .get(APIEndpoints.PUBLIC + 'irrigation_systems')
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+
+          showIrrigationSistems(text);
+
+      });
+  },
+
+	enableIrrigationSystem: function(id) {
+    request
+      .post(APIEndpoints.PUBLIC + 'irrigation_systems/' + id +'/enable')
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+
+          this.getIrrigationSystems();
+
+      }.bind(this));
+  },
+  desableIrrigationSystem: function(id) {
+    request
+      .post(APIEndpoints.PUBLIC + 'irrigation_systems/' + id +'/disable')
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+
+          this.getIrrigationSystems();
+
+      }.bind(this));
   },
 
   // TEMPERATURE SENSORS

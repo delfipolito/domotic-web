@@ -10,6 +10,7 @@ module.exports = {
     SHOW_LIGHTS: null,
     SHOW_TVS: null,
     SHOW_ALARMS: null,
+    SHOW_IRRIGATION_SISTEMS: null,
     SHOW_TEMPERATURE_SENSORS: null,
     SHOW_MOTION_SENSORS: null,
     SHOW_HUMIDITY_SENSORS: null,

@@ -49,10 +49,15 @@ module.exports = React.createClass({
     redirect('rooms');
   },
 
+  onClickIrrigation:function  (e) {
+    e.preventDefault();
+    redirect('irrigation_systems');
+  },
+
 
 
   render: function() {
-    if(SessionStore.isLoggedIn()){
+    if(1==1){
       return(
         <div className="">
           <nav className="navbar navbar-default">
@@ -70,7 +75,7 @@ module.exports = React.createClass({
 
                 <ul className="nav navbar-nav navbar-right">
                   <li className="icons" onClick={this.onClickAlarms}><a className="roundIcon security" href="#"></a></li>
-                  <li className="icons"><a className="roundIcon water" href="#"></a></li>
+                  <li className="icons" onClick={this.onClickIrrigation}><a className="roundIcon water" href="#"></a></li>
                   <li className="icons" onClick={this.onClickLights}><a className="roundIcon light" href="#"></a></li>
                   <li className="icons" onClick={this.onClickTvs}><a className="roundIcon tv" href="#"></a></li>
                   <li className="icons" onClick={this.onClickTemperatureSensors}><a className="roundIcon temperature" href="#"></a></li>

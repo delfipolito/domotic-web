@@ -20,6 +20,12 @@ module.exports = {
 			res: tvs
 		});
 	},
+	showIrrigationSistems: function(alarms) {
+		Dispatcher.handleServerAction({
+			actionType: ActionTypes.SHOW_IRRIGATION_SISTEMS,
+			res: alarms
+		});
+	},
 	showAlarms: function(alarms) {
 		Dispatcher.handleServerAction({
 			actionType: ActionTypes.SHOW_ALARMS,

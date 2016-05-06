@@ -9,6 +9,7 @@ var Rooms        	   		  = require ('./components/Rooms.react');
 var Lights        			  = require ('./components/Lights.react');
 var Tvs            				= require ('./components/Tvs.react');
 var Alarms                = require ('./components/Alarms.react');
+var IrrigationSystems      = require ('./components/IrrigationSystems.react');
 var CreateAlarm           = require ('./components/CreateAlarm.react');
 var TemperatureSensors    = require ('./components/TemperatureSensors.react');
 var DefaultRoute   				= Router.DefaultRoute;
@@ -20,6 +21,7 @@ var routes = (
     <Route name='rooms'   path='/rooms' handler={Rooms} />
     <Route name='lights' path='/lights' handler={Lights} />
     <Route name='alarms' path='/alarms' handler={Alarms} />
+    <Route name='irrigation_systems' path='/irrigation_systems' handler={IrrigationSystems} />
     <Route name='create_alarm' path='/create_alarms' handler={CreateAlarm} />
     <Route name='tvs' path='/tvs' handler={Tvs} />
     <Route name='temperatureSensors' path='/temperatureSensors' handler={TemperatureSensors} />

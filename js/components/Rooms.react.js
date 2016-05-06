@@ -45,9 +45,11 @@ module.exports = React.createClass({
     return(
       <div className="">
         <div className="container">
-          <p className="title">HABITACIONES DE LA CASA</p>
-          <hr/>
-          <div className="noPadding col-xs-12 col-sm-offset-2 col-sm-8">{allRooms}</div>
+          <div className="whiteBox">
+            <p className="title">HABITACIONES DE LA CASA</p>
+            <hr/>
+            <div className="noPadding col-xs-12 col-sm-offset-2 col-sm-8">{allRooms}</div>
+          </div>
         </div>
       </div>
     )

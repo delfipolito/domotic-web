@@ -31,7 +31,7 @@ module.exports = React.createClass({
     });
   },
 
-  
+
 
   render: function() {
     var lights = this.state.lights;
@@ -40,8 +40,8 @@ module.exports = React.createClass({
     for (var key in lights) {
       allLights.push(<Light key={key} light={lights[key]} />);
     }
-      
-    
+
+
     return(
       <div className="">
         <div className="container">

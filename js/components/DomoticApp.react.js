@@ -4,6 +4,8 @@ var NavBar       = require('./NavBar.react');
 
 var DomoticApp = React.createClass({
   render: function() {
+
+
     return(<div><NavBar/><RouteHandler/></div>)
   }
 });

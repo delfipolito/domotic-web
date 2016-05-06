@@ -26,7 +26,6 @@ module.exports = React.createClass({
 
 		return(
     		<div className="row list">
-
                 <div className="col-xs-6 col-sm-9 ">
                     <p className="name">{humiditySensor.name}</p>
                     <p className="description">{humiditySensor.room_name}</p>

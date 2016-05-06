@@ -32,7 +32,7 @@ module.exports = React.createClass({
     });
   },
 
-  
+
 
   render: function() {
     var tvs = this.state.tvs;
@@ -41,11 +41,11 @@ module.exports = React.createClass({
     for (var key in tvs) {
       allTvs.push(<Tv key={key} tv={tvs[key]} />);
     }
-      
-    
+
+
     return(
       <div className="">
-        
+
         <div className="container">
           <div className="whiteBox">
             <p className="title">TELEVISIONES DE LA CASA</p>
