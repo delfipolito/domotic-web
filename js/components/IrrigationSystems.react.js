@@ -31,7 +31,7 @@ module.exports = React.createClass({
     });
   },
   newSystem: function () {
-    redirect('create_irrigation_sistem');
+    redirect('create_irrigation_system');
   },
 
 
@@ -47,7 +47,7 @@ module.exports = React.createClass({
     return(
       <div className="">
         <div className="container">
-          <button className="newElementButton pull-right" onClick={this.newAlarm}>+ Nuevo sistema de riego</button>
+          <button className="newElementButton pull-right" onClick={this.newSystem}>+ Nuevo sistema de riego</button>
           <br/>
           <br/>
           <br/>

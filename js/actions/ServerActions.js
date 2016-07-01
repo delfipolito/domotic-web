@@ -26,6 +26,12 @@ module.exports = {
 			res: alarms
 		});
 	},
+	showValves: function(tvs) {
+		Dispatcher.handleServerAction({
+			actionType: ActionTypes.SHOW_VALVES,
+			res: tvs
+		});
+	},
 	showAlarms: function(alarms) {
 		Dispatcher.handleServerAction({
 			actionType: ActionTypes.SHOW_ALARMS,
@@ -48,6 +54,32 @@ module.exports = {
 		Dispatcher.handleServerAction({
 			actionType: ActionTypes.SHOW_HUMIDITY_SENSORS,
 			res: alarms
+		});
+	},
+	showIrrigationSensors: function(sensors) {
+		Dispatcher.handleServerAction({
+			actionType: ActionTypes.SHOW_IRRIGATION_SENSORS,
+			res: sensors
+		});
+	},
+
+	showLightSistems: function(lights) {
+		Dispatcher.handleServerAction({
+			actionType: ActionTypes.SHOW_LIGHT_SISTEMS,
+			res: lights
+		});
+	},
+
+	showLightSensors: function(sensors) {
+		Dispatcher.handleServerAction({
+			actionType: ActionTypes.SHOW_LIGHT_SENSORS,
+			res: sensors
+		});
+	},
+	showLamps: function(sensors) {
+		Dispatcher.handleServerAction({
+			actionType: ActionTypes.SHOW_LAMPS,
+			res: sensors
 		});
 	},
 

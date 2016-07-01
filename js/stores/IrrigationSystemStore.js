@@ -7,6 +7,8 @@ var ActionTypes       = Constants.ActionTypes;
 var CHANGE_EVENT      = 'change';
 var router            = require('../router');
 var irrigationSystems = '';
+var irrigationSensors = '';
+var valves            = '';
 
 
 var IrrigationSystemStore = assign({}, EventEmitter.prototype, {
@@ -26,6 +28,12 @@ var IrrigationSystemStore = assign({}, EventEmitter.prototype, {
   getIrrigationSystems: function  () {
     return irrigationSystems;
   },
+  getValves: function  () {
+    return valves;
+  },
+  getIrrigationSensors: function  () {
+    return irrigationSensors;
+  },
 });
 
 IrrigationSystemStore.dispatchToken = Dispatcher.register(function(payload) {
@@ -40,6 +48,16 @@ IrrigationSystemStore.dispatchToken = Dispatcher.register(function(payload) {
     case ActionTypes.SHOW_IRRIGATION_SISTEMS:
       console.log("entra en store");
       irrigationSystems = action.res.irrigation_systems;
+      IrrigationSystemStore.emitChange();
+    break;
+    case ActionTypes.SHOW_IRRIGATION_SENSORS:
+      console.log("irrigation_sensors", action.res.soil_humidity_sensors);
+      irrigationSensors = action.res.soil_humidity_sensors;
+      IrrigationSystemStore.emitChange();
+    break;
+    case ActionTypes.SHOW_VALVES:
+      console.log("irrigation_sensors", action.res.valves);
+      valves = action.res.valves;
       IrrigationSystemStore.emitChange();
     break;
     default:

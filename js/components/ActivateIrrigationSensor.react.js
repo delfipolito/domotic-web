@@ -1,6 +1,5 @@
 var React          = require('react');
 var ReactPropTypes = React.PropTypes;
-var enableAlarm    = require('../actions/Actions').enableAlarm;
 
 module.exports = React.createClass({
 
@@ -24,19 +23,19 @@ module.exports = React.createClass({
     _onChange: function() {
     },
 
-    addSensorToAlarm: function  () {
+    addSensorToSystem: function  () {
         if(this.state.isSelected){
           this.setState({
             selected: 'material-icons notSelected pull-right',
             isSelected: false,
           });
-          this.props.removeSensorToAlarm(this.props.sensor.id);
+          this.props.removeSensorFromSystem(this.props.sensor.id);
         }else{
           this.setState({
             selected: 'material-icons selected pull-right',
             isSelected:true,
           });
-          this.props.addSensorToAlarm(this.props.sensor.id);
+          this.props.addSensorToSystem(this.props.sensor.id);
         }
     },
 
@@ -49,7 +48,7 @@ module.exports = React.createClass({
                     <p className="greyName">{sensor.name}</p>
                 </div>
                 <div className="col-xs-3">
-                    <i className={this.state.selected} onClick={this.addSensorToAlarm}>done</i>
+                    <i className={this.state.selected} onClick={this.addSensorToSystem}>done</i>
                 </div>
             </div>
 		)

@@ -8,7 +8,12 @@ var showRooms           = require('../actions/ServerActions').showRooms;
 var showLights          = require('../actions/ServerActions').showLights;
 var showTvs             = require('../actions/ServerActions').showTvs;
 var showAlarms          = require('../actions/ServerActions').showAlarms;
+var showValves          = require('../actions/ServerActions').showValves;
 var showIrrigationSistems  = require('../actions/ServerActions').showIrrigationSistems;
+var showIrrigationSensors  = require('../actions/ServerActions').showIrrigationSensors;
+var showLightSistems       = require('../actions/ServerActions').showLightSistems;
+var showLightSensors       = require('../actions/ServerActions').showLightSensors;
+var showLamps              = require('../actions/ServerActions').showLamps;
 var showMotionSensors      = require('../actions/ServerActions').showMotionSensors;
 var showTemperatureSensors = require('../actions/ServerActions').showTemperatureSensors;
 var showHumiditySensors    = require('../actions/ServerActions').showHumiditySensors;
@@ -21,9 +26,14 @@ module.exports = {
       .send({user:{email: email, password: password}})
       .set('Accept', 'application/json')
       .end(function(res) {
-        var atoken= res.xhr.getResponseHeader("Authorization");
-        localStorage.setItem('Authorization', res.xhr.getAllResponseHeaders() );
-        redirect('lights');
+				if(res.status<400){
+					var atoken= res.xhr.getResponseHeader("Authorization");
+	        localStorage.setItem('Authorization', atoken );
+	        redirect('lights');
+				}else{
+					console.log("error");
+				}
+
       }.bind(this));
   },
 
@@ -165,7 +175,7 @@ module.exports = {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
 
-          this.getAlarms();
+        this.getAlarms();
 
       }.bind(this));
   },
@@ -197,6 +207,90 @@ module.exports = {
       });
   },
 
+	// LIGHT SYSTEMS
+	getLightSystems: function() {
+    request
+      .get(APIEndpoints.PUBLIC + 'lighting_systems')
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+
+       showLightSistems(text);
+
+      });
+  },
+
+	createLightSystem: function(data) {
+    request
+			.post(APIEndpoints.PUBLIC + 'lighting_systems')
+			.send({lighting_systems: {name: data.name, description: data.description, lighting_sensors_ids: data.sensors_ids, lights_ids: data.lamps_ids}})
+			.set('Accept', 'application/json')
+			.set('Authorization', localStorage.getItem('Authorization'))
+			.end(function(res) {
+				var text = JSON.parse(res.text);
+				var code = JSON.parse(res.status);
+					redirect('light_systems');
+
+      });
+  },
+
+	enableLightSystem: function(id) {
+    request
+      .post(APIEndpoints.PUBLIC + 'lighting_systems/' + id +'/enable')
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+
+          this.getLightSystems();
+
+      }.bind(this));
+  },
+  desableLightSystem: function(id) {
+    request
+      .post(APIEndpoints.PUBLIC + 'lighting_systems/' + id +'/disable')
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+
+          this.getLightSystems();
+
+      }.bind(this));
+  },
+
+	getLightSensors: function() {
+    request
+      .get(APIEndpoints.PUBLIC + 'luminosity_sensors')
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+				console.log(res);
+          showLightSensors(text);
+
+      });
+  },
+
+	 getLamps: function() {
+		request
+			.get(APIEndpoints.PUBLIC + 'lights')
+			.set('Accept', 'application/json')
+			.set('Authorization', localStorage.getItem('Authorization'))
+			.end(function(res) {
+				var text = JSON.parse(res.text);
+				var code = JSON.parse(res.status);
+				console.log("lights", res);
+
+					showLamps(text);
+
+			});
+   },
 	// IRRIGATION SYSTEMS
   getIrrigationSystems: function() {
     request
@@ -208,6 +302,20 @@ module.exports = {
         var code = JSON.parse(res.status);
 
           showIrrigationSistems(text);
+
+      });
+  },
+	createIrrigationSystem: function(data) {
+		console.log(data, "DATA");
+    request
+			.post(APIEndpoints.PUBLIC + 'irrigation_systems')
+			.send({irrigation_system: {name: data.name, description: data.description, soil_humidity_sensors_ids: data.soil_humidity_sensors_ids, valves_ids: data.valves_ids}})
+			.set('Accept', 'application/json')
+			.set('Authorization', localStorage.getItem('Authorization'))
+			.end(function(res) {
+				var text = JSON.parse(res.text);
+				var code = JSON.parse(res.status);
+					redirect('irrigation_systems');
 
       });
   },
@@ -237,6 +345,33 @@ module.exports = {
           this.getIrrigationSystems();
 
       }.bind(this));
+  },
+	getIrrigationSensors: function() {
+    request
+      .get(APIEndpoints.PUBLIC + 'soil_humidity_sensors')
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+				console.log(res);
+          showIrrigationSensors(text);
+
+      });
+  },
+
+	getValves: function() {
+    request
+      .get(APIEndpoints.PUBLIC + 'valves')
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+				console.log(res);
+          showValves(text);
+
+      });
   },
 
   // TEMPERATURE SENSORS

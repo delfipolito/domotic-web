@@ -77,8 +77,6 @@ module.exports = React.createClass({
                   <li className="icons" onClick={this.onClickAlarms}><a className="roundIcon security" href="#"></a></li>
                   <li className="icons" onClick={this.onClickIrrigation}><a className="roundIcon water" href="#"></a></li>
                   <li className="icons" onClick={this.onClickLights}><a className="roundIcon light" href="#"></a></li>
-                  <li className="icons" onClick={this.onClickTvs}><a className="roundIcon tv" href="#"></a></li>
-                  <li className="icons" onClick={this.onClickTemperatureSensors}><a className="roundIcon temperature" href="#"></a></li>
                   <li className="icons" onClick={this.onClickRooms}><a className="roundIcon home" href="#"></a></li>
                   <li className="dropdown icons">
                     <a href="#" className="dropdown-toggle roundIcon user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>

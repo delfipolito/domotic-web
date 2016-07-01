@@ -7,6 +7,30 @@ module.exports = {
 		DomoticAPIUtils.login(email, password);
 	},
 
+	// SISTEMA DE LUZ
+	getLightSystems: function() {
+		DomoticAPIUtils.getLightSystems();
+	},
+
+	createLightSystem: function(data) {
+		DomoticAPIUtils.createLightSystem(data);
+	},
+
+	enableLightSystem: function(id, enabled) {
+		if(enabled){
+			DomoticAPIUtils.desableLightSystem(id);
+		}else{
+			DomoticAPIUtils.enableLightSystem(id);
+		}
+	},
+	getLightSensors: function() {
+		DomoticAPIUtils.getLightSensors();
+	},
+	getLamps: function() {
+		DomoticAPIUtils.getLamps();
+	},
+
+
 	// SISTEMA DE ALARMAS
 	getAlarms: function() {
 		DomoticAPIUtils.getAlarms();
@@ -29,12 +53,21 @@ module.exports = {
 	getIrrigationSystems: function() {
 		DomoticAPIUtils.getIrrigationSystems();
 	},
+	createIrrigationSystem: function(data) {
+		DomoticAPIUtils.createIrrigationSystem(data);
+	},
 	enableIrrigationSystem: function(id, enabled) {
 		if(enabled){
 			DomoticAPIUtils.desableIrrigationSystem(id);
 		}else{
 			DomoticAPIUtils.enableIrrigationSystem(id);
 		}
+	},
+	getIrrigationSensors: function() {
+		DomoticAPIUtils.getIrrigationSensors();
+	},
+	getValves: function() {
+		DomoticAPIUtils.getValves();
 	},
 
 	// SENSORES

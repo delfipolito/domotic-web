@@ -1,6 +1,5 @@
 var React          = require('react');
 var ReactPropTypes = React.PropTypes;
-var enableAlarm    = require('../actions/Actions').enableAlarm;
 
 module.exports = React.createClass({
 
@@ -24,32 +23,33 @@ module.exports = React.createClass({
     _onChange: function() {
     },
 
-    addSensorToAlarm: function  () {
+    addValveToSystem: function  () {
         if(this.state.isSelected){
           this.setState({
             selected: 'material-icons notSelected pull-right',
             isSelected: false,
           });
-          this.props.removeSensorToAlarm(this.props.sensor.id);
+          this.props.removeValveFromSystem(this.props.valve.id);
         }else{
           this.setState({
             selected: 'material-icons selected pull-right',
             isSelected:true,
           });
-          this.props.addSensorToAlarm(this.props.sensor.id);
+          this.props.addValveToSystem(this.props.valve.id);
         }
     },
 
 	render: function() {
-        var sensor = this.props.sensor;
+        var valve = this.props.valve;
+        console.log(valve, "val");
 
 		return(
     		<div className="row list">
                 <div className="col-xs-9">
-                    <p className="greyName">{sensor.name}</p>
+                    <p className="greyName">{valve.name}</p>
                 </div>
                 <div className="col-xs-3">
-                    <i className={this.state.selected} onClick={this.addSensorToAlarm}>done</i>
+                    <i className={this.state.selected} onClick={this.addValveToSystem}>done</i>
                 </div>
             </div>
 		)

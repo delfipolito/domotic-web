@@ -1,0 +1,43 @@
+/*FONTS*/
+@font-face {
+ font-family: 'AmaticBold';
+ src: url('../font/AmaticSC-Bold.ttf');
+}
+@font-face {
+ font-family: 'Amatic';
+ src: url('../font/AmaticSC-Regular.ttf');
+}
+@font-face {
+ font-family: 'LatoBold';
+ src: url('../font/Lato-Bold.ttf');
+}
+@font-face {
+ font-family: 'LatoBlack';
+ src: url('../font/Lato-Black.ttf');
+}
+@font-face {
+ font-family: 'Lato';
+ src: url('../font/Lato-Regular.ttf');
+}
+
+/*GENERAL STYLE*/
+nav{
+	background-color: white!important;
+	margin: 0px!important;
+}
+html{
+  height: 100%;
+}
+body{
+  background-color: #F8F8F8;
+  /*background-image: url('./images/fondo.png');
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  height: 100%;
+}
+section{
+  height: 100%;
+}

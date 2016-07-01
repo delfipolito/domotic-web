@@ -1,0 +1,95 @@
+.centered{
+	text-align: center;
+}
+.hidden{
+  display: none;
+}
+.noPadding{
+	padding: 0px;
+}
+
+.greyName{
+	font-family: 'Lato';
+	font-size: 15px;
+	color: #696565;
+}
+.leftTitle{
+  font-family: 'Lato-Bold';
+  font-size: 17px;
+  color: #4a4a4a;
+  text-align: left;
+}
+.selected{
+  color: #99D416;
+  font-weight: bold;
+  cursor: pointer;
+}
+.notSelected{
+  color: grey;
+  cursor: pointer;
+}
+
+.buttonOn{
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  text-align: right;
+  font-size: 40px;
+  margin-top: 5px;
+  font-weight: bold;
+  color: #99D416;
+}
+.buttonOff{
+  height: 50px;
+  width: 50px;
+  cursor:pointer;
+  text-align: right;
+  font-size: 40px;
+  margin-top: 5px;
+  font-weight: bold;
+  color: red;
+}
+
+.violetBackground{
+  background-image: url('./images/fondo.png');
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:100%;
+}
+
+.whiteBox{
+	min-height: 600px;
+	background-color: white;
+	border-radius: 10px;
+	border: solid 2px #E8E6E6;
+	padding: 30px;
+}
+
+.valign-wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center; }
+  .valign-wrapper .valign {
+    display: block; }
+
+.roundIcon{
+	margin-top: 5px;
+	background-image: url('../images/menuLight.png');
+	background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 60px;
+  width: 60px;
+}
