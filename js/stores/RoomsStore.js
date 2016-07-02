@@ -22,10 +22,11 @@ var RoomsStore = assign({}, EventEmitter.prototype, {
   removeChangeListener: function(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   },
-  
+
   getRooms: function  () {
     return rooms;
   },
+
 });
 
 RoomsStore.dispatchToken = Dispatcher.register(function(payload) {

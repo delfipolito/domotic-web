@@ -1,11 +1,12 @@
 var keyMirror = require('keymirror');
-var Root      = "http://192.168.0.17:3000/api/v1/";
+var Root      = "http://domotic-server.herokuapp.com/api/v1/";
 var APIRoot   = Root + "/web";
 
 module.exports = {
 
   ActionTypes: keyMirror({
     REDIRECT: null,
+    REDIRECT_TO_CAMERA: null,
     SHOW_ROOMS: null,
     SHOW_LIGHTS: null,
     SHOW_TVS: null,

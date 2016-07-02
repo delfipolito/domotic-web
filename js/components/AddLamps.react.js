@@ -29,13 +29,13 @@ module.exports = React.createClass({
             selected: 'material-icons notSelected pull-right',
             isSelected: false,
           });
-          this.props.removeLampFromSystem(this.props.valve.id);
+          this.props.removeLampFromSystem(this.props.lamp.id);
         }else{
           this.setState({
             selected: 'material-icons selected pull-right',
             isSelected:true,
           });
-          this.props.addLampToSystem(this.props.valve.id);
+          this.props.addLampToSystem(this.props.lamp.id);
         }
     },
 

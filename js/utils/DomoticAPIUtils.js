@@ -225,7 +225,7 @@ module.exports = {
 	createLightSystem: function(data) {
     request
 			.post(APIEndpoints.PUBLIC + 'lighting_systems')
-			.send({lighting_systems: {name: data.name, description: data.description, lighting_sensors_ids: data.sensors_ids, lights_ids: data.lamps_ids}})
+			.send({lighting_system: {name: data.name, description: data.description, luminosity_sensors_ids: data.sensors_ids, lights_ids: data.lamps_ids}})
 			.set('Accept', 'application/json')
 			.set('Authorization', localStorage.getItem('Authorization'))
 			.end(function(res) {

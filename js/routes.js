@@ -6,10 +6,11 @@ var DomoticApp     				= require ('./components/DomoticApp.react');
 var Login        				  = require ('./components/Login.react');
 var Profile        				= require ('./components/Profile.react');
 var Rooms        	   		  = require ('./components/Rooms.react');
-var LightSystems        	  = require ('./components/LightSystems.react');
+var LightSystems        	= require ('./components/LightSystems.react');
 var Tvs            				= require ('./components/Tvs.react');
+var CameraView            = require ('./components/CameraView.react');
 var Alarms                = require ('./components/Alarms.react');
-var IrrigationSystems      = require ('./components/IrrigationSystems.react');
+var IrrigationSystems     = require ('./components/IrrigationSystems.react');
 
 var CreateIrrigationSystem = require ('./components/CreateIrrigationSystem.react');
 var CreateAlarm            = require ('./components/CreateAlarm.react');
@@ -24,6 +25,7 @@ var routes = (
     <Route name='profile' path='/profile' handler={Profile} />
 
     <Route name='rooms'   path='/rooms' handler={Rooms} />
+    <Route name='camera_view' path='/camera_view' handler={CameraView} />
     <Route name='tvs' path='/tvs' handler={Tvs} />
     <Route name='temperatureSensors' path='/temperatureSensors' handler={TemperatureSensors} />
 

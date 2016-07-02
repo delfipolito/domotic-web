@@ -72,10 +72,10 @@ module.exports = React.createClass({
   },
   addLampToSystem: function (id) {
     console.log("id", id);
-    lampInSystem = this.state.lampInSystem;
-    lampInSystem.push(id);
+    lampsInSystem = this.state.lampsInSystem;
+    lampsInSystem.push(id);
     this.setState({
-      lampInSystem: lampInSystem
+      lampsInSystem: lampsInSystem
     });
   },
   removeLampFromSystem: function (id) {

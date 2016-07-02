@@ -54,7 +54,6 @@ Store.dispatchToken = Dispatcher.register(function(payload) {
 
   switch(action.actionType) {
     case ActionTypes.REDIRECT:
-      console.log("ruta,", action.route);
       router.transitionTo(action.route);
       Store.emitChange();
     break;

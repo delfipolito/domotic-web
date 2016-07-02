@@ -81,10 +81,10 @@ module.exports = React.createClass({
                   <li className="dropdown icons">
                     <a href="#" className="dropdown-toggle roundIcon user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
                     <ul className="dropdown-menu">
-                      <li><a href="#">Ver usuarios</a></li>
-                      <li><a href="#">Crear nuevo usuario</a></li>
+                      <li><a className="navbarLink" href="#">Ver usuarios</a></li>
+                      <li><a className="navbarLink" href="#">Crear nuevo usuario</a></li>
                       <li role="separator" className="divider"></li>
-                      <li><a href="#">Cerrar sesión</a></li>
+                      <li><a className="navbarLink" href="#">Cerrar sesión</a></li>
                     </ul>
                   </li>
                 </ul>
