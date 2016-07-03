@@ -5,6 +5,7 @@ var DomoticApp     				= require ('./components/DomoticApp.react');
 
 var Login        				  = require ('./components/Login.react');
 var UsersConfiguration    = require ('./components/UsersConfiguration.react');
+var NewUser               = require ('./components/NewUser.react');
 var Profile        				= require ('./components/Profile.react');
 var Rooms        	   		  = require ('./components/Rooms.react');
 var LightSystems        	= require ('./components/LightSystems.react');
@@ -25,6 +26,7 @@ var routes = (
   <Route handler={DomoticApp} path="/">
     <Route name='profile' path='/profile' handler={Profile} />
     <Route name='users_configuration' path='/users_configuration' handler={UsersConfiguration} />
+    <Route name='new_user' path='/new_user' handler={NewUser} />
 
     <Route name='rooms'   path='/rooms' handler={Rooms} />
     <Route name='camera_view' path='/camera_view' handler={CameraView} />

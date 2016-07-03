@@ -12,6 +12,9 @@ module.exports = {
 	deleteUser: function(id) {
 		DomoticAPIUtils.deleteUser(id);
 	},
+	createUser: function(user) {
+		DomoticAPIUtils.createUser(user);
+	},
 
 	// SISTEMA DE LUZ
 	getLightSystems: function() {

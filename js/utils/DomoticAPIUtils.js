@@ -62,6 +62,22 @@ module.exports = {
 
       }.bind(this));
   },
+	createUser: function(user) {
+		console.log("user en utils", user);
+    request
+      .post(APIEndpoints.PUBLIC + 'users/' )
+			.send({user: user})
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+        this.getUsers();
+				redirect('users_configuration');
+
+      }.bind(this));
+  },
+
 	// HABITACIONES
   getRooms: function() {
     request

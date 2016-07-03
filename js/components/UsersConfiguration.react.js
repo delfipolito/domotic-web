@@ -52,7 +52,7 @@ module.exports = React.createClass({
         <div className="container">
           <form onSubmit={this._onSubmit}>
             <div className="whiteBox">
-              <p className="title">CONFIGURACION DE USUARIOS</p>
+              <p className="title gradient">CONFIGURACION DE USUARIOS</p>
               <hr/>
               <div className="col-xs-12">
                 <button className="newElementButton pull-right" onClick={this.newUser}>+ Nuevo usuario</button>

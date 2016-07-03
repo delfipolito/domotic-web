@@ -29,21 +29,14 @@ module.exports = React.createClass({
   },
   onClickLights:function  (e) {
     e.preventDefault();
-    redirect('lights');
+    redirect('light_systems');
   },
 
   onClickAlarms:function  (e) {
     e.preventDefault();
     redirect('alarms');
   },
-  onClickTvs:function  (e) {
-    e.preventDefault();
-    redirect('tvs');
-  },
-  onClickTemperatureSensors:function  (e) {
-    e.preventDefault();
-    redirect('temperatureSensors');
-  },
+
   onClickRooms:function  (e) {
     e.preventDefault();
     redirect('rooms');
@@ -56,6 +49,9 @@ module.exports = React.createClass({
   onClickUsersConfiguration:function  (e) {
     e.preventDefault();
     redirect('users_configuration');
+  },
+  onClickNewUser: function () {
+    redirect('new_user');
   },
 
 
@@ -86,7 +82,7 @@ module.exports = React.createClass({
                     <a href="#" className="dropdown-toggle roundIcon user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
                     <ul className="dropdown-menu">
                       <li><a className="navbarLink" onClick={this.onClickUsersConfiguration}>Ver usuarios</a></li>
-                      <li><a className="navbarLink" href="#">Crear nuevo usuario</a></li>
+                      <li><a className="navbarLink" onClick={this.onClickNewUser}>Crear nuevo usuario</a></li>
                       <li role="separator" className="divider"></li>
                       <li><a className="navbarLink" href="#">Cerrar sesión</a></li>
                     </ul>
