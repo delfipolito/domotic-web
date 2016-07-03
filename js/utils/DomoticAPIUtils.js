@@ -5,6 +5,7 @@ var redirect            = require('../actions/RouteActions').redirect;
 var RouteStore          = require('../stores/RouteStore');
 var Store               = require('../stores/Store');
 var showUsers           = require('../actions/ServerActions').showUsers;
+var showWifi            = require('../actions/ServerActions').showWifi;
 var showRooms           = require('../actions/ServerActions').showRooms;
 var showLights          = require('../actions/ServerActions').showLights;
 var showTvs             = require('../actions/ServerActions').showTvs;
@@ -65,7 +66,7 @@ module.exports = {
 	createUser: function(user) {
 		console.log("user en utils", user);
     request
-      .post(APIEndpoints.PUBLIC + 'users/' )
+      .post(APIEndpoints.PUBLIC + 'users' )
 			.send({user: user})
       .set('Accept', 'application/json')
       .set('Authorization', localStorage.getItem('Authorization'))
@@ -76,6 +77,20 @@ module.exports = {
 				redirect('users_configuration');
 
       }.bind(this));
+  },
+
+	// REDES WIFI
+	getWifi: function() {
+    request
+      .get(APIEndpoints.PUBLIC + 'network_configurations')
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+        showWifi(text);
+
+      });
   },
 
 	// HABITACIONES

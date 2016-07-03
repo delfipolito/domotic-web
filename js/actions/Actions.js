@@ -16,6 +16,11 @@ module.exports = {
 		DomoticAPIUtils.createUser(user);
 	},
 
+	// REDES WIFI
+	getWifi: function() {
+		DomoticAPIUtils.getWifi();
+	},
+
 	// SISTEMA DE LUZ
 	getLightSystems: function() {
 		DomoticAPIUtils.getLightSystems();

@@ -1,5 +1,5 @@
 var keyMirror = require('keymirror');
-var Root      = "http://192.168.0.15:3000/api/v1/";
+var Root      = "http://10.0.0.9:3000/api/v1/";
 var Root2      = "http://domotic-server.herokuapp.com/api/v1/";
 var APIRoot   = Root + "/web";
 
@@ -22,6 +22,7 @@ module.exports = {
     SHOW_LIGHT_SENSORS: null,
     SHOW_LAMPS: null,
     SHOW_USERS: null,
+    SHOW_WIFI: null,
   }),
 
   PayloadSources: keyMirror({

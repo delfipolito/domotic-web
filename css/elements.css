@@ -294,3 +294,6 @@
   background-size: contain !important;
   background-repeat:no-repeat;
 }
+.spaceMargin{
+	height:40px;
+}

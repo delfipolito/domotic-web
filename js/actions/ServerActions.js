@@ -88,5 +88,11 @@ module.exports = {
 			res: sensors
 		});
 	},
+	showWifi: function(sensors) {
+		Dispatcher.handleServerAction({
+			actionType: ActionTypes.SHOW_WIFI,
+			res: sensors
+		});
+	},
 
 }
