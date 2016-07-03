@@ -277,3 +277,20 @@
   -moz-box-shadow: 0px 0px 40px #666666;
   box-shadow: 0px 0px 40px #9700AC;
 }
+
+
+
+.deleteButton {
+  text-align: right;
+  background-color: transparent!important;
+  border-color: transparent!important;
+  text-align: right;
+  height: 23px;
+  width: 23px;
+  background-image: url('../images/closeButton.png');
+  -webkit-background-size: contain !important;
+  -moz-background-size: contain !important;
+  -o-background-size: contain !important;
+  background-size: contain !important;
+  background-repeat:no-repeat;
+}

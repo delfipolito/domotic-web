@@ -2,6 +2,12 @@ var Dispatcher  = require ('../dispatcher/Dispatcher');
 var ActionTypes   = require ('../constants/Constants').ActionTypes;
 
 module.exports = {
+	showUsers: function(users) {
+		Dispatcher.handleServerAction({
+			actionType: ActionTypes.SHOW_USERS,
+			res: users
+		});
+	},
 	showRooms: function(lights) {
 		Dispatcher.handleServerAction({
 			actionType: ActionTypes.SHOW_ROOMS,

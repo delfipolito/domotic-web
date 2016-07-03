@@ -4,6 +4,7 @@ var APIEndpoints        = Constants.APIEndpoints;
 var redirect            = require('../actions/RouteActions').redirect;
 var RouteStore          = require('../stores/RouteStore');
 var Store               = require('../stores/Store');
+var showUsers           = require('../actions/ServerActions').showUsers;
 var showRooms           = require('../actions/ServerActions').showRooms;
 var showLights          = require('../actions/ServerActions').showLights;
 var showTvs             = require('../actions/ServerActions').showTvs;
@@ -37,6 +38,30 @@ module.exports = {
       }.bind(this));
   },
 
+	getUsers: function() {
+    request
+      .get(APIEndpoints.PUBLIC + 'users')
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+        showUsers(text);
+
+      });
+  },
+	deleteUser: function(id) {
+    request
+      .del(APIEndpoints.PUBLIC + 'users/' + id)
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+        this.getUsers();
+
+      }.bind(this));
+  },
 	// HABITACIONES
   getRooms: function() {
     request

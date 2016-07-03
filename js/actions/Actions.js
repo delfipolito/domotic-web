@@ -6,6 +6,12 @@ module.exports = {
 	login: function(email, password) {
 		DomoticAPIUtils.login(email, password);
 	},
+	getUsers: function() {
+		DomoticAPIUtils.getUsers();
+	},
+	deleteUser: function(id) {
+		DomoticAPIUtils.deleteUser(id);
+	},
 
 	// SISTEMA DE LUZ
 	getLightSystems: function() {

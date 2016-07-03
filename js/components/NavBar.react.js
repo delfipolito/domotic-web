@@ -53,6 +53,10 @@ module.exports = React.createClass({
     e.preventDefault();
     redirect('irrigation_systems');
   },
+  onClickUsersConfiguration:function  (e) {
+    e.preventDefault();
+    redirect('users_configuration');
+  },
 
 
 
@@ -81,7 +85,7 @@ module.exports = React.createClass({
                   <li className="dropdown icons">
                     <a href="#" className="dropdown-toggle roundIcon user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
                     <ul className="dropdown-menu">
-                      <li><a className="navbarLink" href="#">Ver usuarios</a></li>
+                      <li><a className="navbarLink" onClick={this.onClickUsersConfiguration}>Ver usuarios</a></li>
                       <li><a className="navbarLink" href="#">Crear nuevo usuario</a></li>
                       <li role="separator" className="divider"></li>
                       <li><a className="navbarLink" href="#">Cerrar sesión</a></li>

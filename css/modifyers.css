@@ -7,6 +7,9 @@
 .noPadding{
 	padding: 0px;
 }
+.allHeight{
+  height: 100%;
+}
 .pointer{
 	cursor: pointer;
 }
