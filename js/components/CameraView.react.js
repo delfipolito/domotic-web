@@ -33,7 +33,7 @@ module.exports = React.createClass({
           <div className="whiteBox centered">
             <div className="row">
               <div className="col-xs-3 leftAligned"><button className="goBackButton " onClick={this.goBack}>Volver</button></div>
-              <div className="col-xs-6"><p className="title">Camera</p></div>
+              <div className="col-xs-6"><p className="title gradient">Camera</p></div>
             </div>
             <hr/>
             <img className="centered" src={localStorage.getItem('cameraUrl')}></img>

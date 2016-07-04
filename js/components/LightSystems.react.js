@@ -52,7 +52,7 @@ module.exports = React.createClass({
           <br/>
           <br/>
           <div className="whiteBox">
-            <p className="title">SISTEMAS DE LUZ DE LA CASA</p>
+            <p className="title gradient">SISTEMAS DE LUZ DE LA CASA</p>
             <hr/>
             <div className="noPadding col-xs-12 col-sm-offset-2 col-sm-8">{allSystems}</div>
           </div>

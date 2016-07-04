@@ -19,6 +19,14 @@
  font-family: 'Lato';
  src: url('../font/Lato-Regular.ttf');
 }
+@font-face {
+ font-family: 'Lato-Thin';
+ src: url('../font/Lato-Thin.ttf');
+}
+@font-face {
+ font-family: 'Lato-Light';
+ src: url('../font/Lato-Light.ttf');
+}
 
 /*GENERAL STYLE*/
 nav{

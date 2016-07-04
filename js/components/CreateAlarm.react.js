@@ -80,7 +80,7 @@ module.exports = React.createClass({
             <button className="goBackButton " onClick={this.goBack}>Volver</button>
             <br/>
             <div className="whiteBox">
-              <p className="title">CREAR NUEVA ALARMA</p>
+              <p className="title gradient">CREAR NUEVA ALARMA</p>
               <hr/>
                 <div className="input-field col-xs-6  col-xs-offset-3 ">
                   <input id="name" type="text" className="formText"/>

@@ -48,7 +48,7 @@ module.exports = React.createClass({
 
         <div className="container">
           <div className="whiteBox">
-            <p className="title">TELEVISIONES DE LA CASA</p>
+            <p className="title gradient">TELEVISIONES DE LA CASA</p>
             <hr/>
             <div className="noPadding col-xs-12 col-sm-offset-2 col-sm-8">{allTvs}</div>
           </div>

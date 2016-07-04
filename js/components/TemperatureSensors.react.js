@@ -57,7 +57,7 @@ module.exports = React.createClass({
       <div className="">
         <div className="container">
           <div className="whiteBox">
-            <p className="title">SENSORES DE AMBIENTE</p>
+            <p className="title gradient">SENSORES DE AMBIENTE</p>
             <hr/>
             <div className="noPadding col-xs-12 col-sm-offset-2 col-sm-8">{allTemperatureSensors}</div>
             <div className="noPadding col-xs-12 col-sm-offset-2 col-sm-8">{allHumiditySensors}</div>
