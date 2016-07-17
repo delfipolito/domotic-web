@@ -20,6 +20,15 @@ module.exports = {
 	getWifi: function() {
 		DomoticAPIUtils.getWifi();
 	},
+	deleteWifi: function(id) {
+		DomoticAPIUtils.deleteWifi(id);
+	},
+	createWifi: function(wifi) {
+		DomoticAPIUtils.createWifi(wifi);
+	},
+	selectWifi: function(id) {
+		DomoticAPIUtils.selectWifi(id);
+	},
 
 	// SISTEMA DE LUZ
 	getLightSystems: function() {
@@ -109,6 +118,14 @@ module.exports = {
 			DomoticAPIUtils.switchLightOff(id);
 		}else{
 			DomoticAPIUtils.switchLightOn(id);
+		}
+
+	},
+	switchValve: function(id, opened) {
+		if(opened){
+			DomoticAPIUtils.closeValve(id);
+		}else{
+			DomoticAPIUtils.openValve(id);
 		}
 
 	},

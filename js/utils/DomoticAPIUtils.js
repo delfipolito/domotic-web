@@ -31,7 +31,7 @@ module.exports = {
 				if(res.status<400){
 					var atoken= res.xhr.getResponseHeader("Authorization");
 	        localStorage.setItem('Authorization', atoken );
-	        redirect('lights');
+	        redirect('rooms');
 				}else{
 					console.log("error");
 				}
@@ -92,7 +92,41 @@ module.exports = {
 
       });
   },
+	deleteWifi: function(id) {
+    request
+      .del(APIEndpoints.PUBLIC + 'network_configurations/' + id)
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+        this.getWifi();
 
+      }.bind(this));
+  },
+	createWifi: function(wifi) {
+    request
+      .post(APIEndpoints.PUBLIC + 'network_configurations' )
+			.send({network_configuration: wifi})
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+				redirect('configuration');
+
+      }.bind(this));
+  },
+	selectWifi: function(id) {
+    request
+      .post(APIEndpoints.PUBLIC + 'network_configurations/' + id + '/current')
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        this.getWifi();
+
+      }.bind(this));
+  },
 	// HABITACIONES
   getRooms: function() {
     request
@@ -133,7 +167,7 @@ module.exports = {
         var code = JSON.parse(res.status);
         console.log("lights", res);
 
-          this.getLights();
+          this.getRooms();
 
       }.bind(this));
   },
@@ -147,7 +181,7 @@ module.exports = {
         var code = JSON.parse(res.status);
         console.log("lights", res);
 
-          this.getLights();
+          this.getRooms();
 
       }.bind(this));
   },
@@ -177,7 +211,7 @@ module.exports = {
         var code = JSON.parse(res.status);
         console.log("tvs", res);
 
-          this.getTvs();
+          this.getRooms();
 
       }.bind(this));
   },
@@ -190,7 +224,35 @@ module.exports = {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
 
-          this.getTvs();
+          this.getRooms();
+
+      }.bind(this));
+  },
+	openValve: function(id) {
+    request
+      .post(APIEndpoints.PUBLIC + 'valves/' + id +'/open')
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+        console.log("valves", res);
+
+          this.getRooms();
+
+      }.bind(this));
+  },
+  closeValve: function(id) {
+    request
+      .post(APIEndpoints.PUBLIC + 'valves/' + id +'/close')
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+        console.log("valves", res);
+
+          this.getRooms();
 
       }.bind(this));
   },

@@ -24,7 +24,7 @@ module.exports = React.createClass({
     componentDidMount: function() {
 
         SessionStore.addChangeListener(this._onChange);
-
+        
         $('.loginContainer').css("height", $( window ).height());
 
     },

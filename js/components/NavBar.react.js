@@ -53,11 +53,17 @@ module.exports = React.createClass({
   onClickNewUser: function () {
     redirect('new_user');
   },
+  onClickLogOut:function  (e) {
+    e.preventDefault();
+    localStorage.removeItem('Authorization');
+    redirect('login');
+  },
 
 
 
   render: function() {
-    if(1==1){
+    console.log("isLoggedIn",SessionStore.isLoggedIn());
+    if(SessionStore.isLoggedIn()){
       return(
         <div className="">
           <nav className="navbar navbar-default">
@@ -84,7 +90,7 @@ module.exports = React.createClass({
                       <li><a className="navbarLink" onClick={this.onClickUsersConfiguration}>Ver usuarios</a></li>
                       <li><a className="navbarLink" onClick={this.onClickNewUser}>Crear nuevo usuario</a></li>
                       <li role="separator" className="divider"></li>
-                      <li><a className="navbarLink" href="#">Cerrar sesión</a></li>
+                      <li><a className="navbarLink" onClick={this.onClickLogOut}>Cerrar sesión</a></li>
                     </ul>
                   </li>
                 </ul>

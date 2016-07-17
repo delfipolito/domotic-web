@@ -56,7 +56,7 @@ module.exports = React.createClass({
                 <p className="title gradient">CONFIGURACION DE REDES WIFI</p>
                 <hr/>
                 <div className="col-xs-12">
-                  <button className="newElementButton pull-right" onClick={this.newUser}>+ Nueva red</button>
+                  <button className="newElementButton pull-right" onClick={this.newWifi}>+ Nueva red</button>
                 </div>
                 <div className="col-xs-8 col-xs-offset-2">{allWifi}</div>
               </div>

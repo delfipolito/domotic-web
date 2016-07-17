@@ -2,6 +2,7 @@ var React             = require('react');
 var ReactPropTypes    = React.PropTypes;
 var Light             = require('./Light.react.js');
 var Tv                = require('./Tv.react.js');
+var Valve             = require('./Valve.react.js');
 var Camera            = require('./Camera.react.js');
 var CameraView        = require('./CameraView.react.js');
 var TemperatureSensor = require('./TemperatureSensor.react.js');
@@ -72,6 +73,13 @@ module.exports = React.createClass({
       allHumiditySensors.push(<HumiditySensor key={key} humiditySensor={humiditySensors[key]} />);
     }
 
+    var valves = this.props.room.valves;
+    var allValves = [];
+
+    for (var key in valves) {
+      allValves.push(<Valve key={key} valve={valves[key]} />);
+    }
+
 
 		return(
     		<div className="roomContainer">
@@ -82,6 +90,7 @@ module.exports = React.createClass({
           <div>{allCameras}</div>
           <div>{allTemperatureSensors}</div>
           <div>{allHumiditySensors}</div>
+          <div>{allValves}</div>
         </div>
 		)
 	},

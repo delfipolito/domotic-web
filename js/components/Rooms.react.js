@@ -38,7 +38,6 @@ module.exports = React.createClass({
 
     for (var key in rooms) {
       allRooms.push(<Room key={key} room={rooms[key]} />);
-      allRooms.push(<Room key={key+1} room={rooms[key]} />);
     }
 
 

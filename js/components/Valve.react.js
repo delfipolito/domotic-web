@@ -1,6 +1,6 @@
 var React          = require('react');
 var ReactPropTypes = React.PropTypes;
-var turnTv       = require('../actions/Actions').turnTv;
+var switchValve    = require('../actions/Actions').switchValve;
 
 module.exports = React.createClass({
 
@@ -17,28 +17,27 @@ module.exports = React.createClass({
 
     _onChange: function() {
     },
-
-    turnTv: function  () {
-        turnTv(this.props.tv.id, this.props.tv.turned_on);
+    switchValve: function  () {
+        switchValve(this.props.valve.id, this.props.valve.opened);
     },
 
 	render: function() {
-        var tv = this.props.tv;
+        var valve = this.props.valve;
         var interruptor = '';
-        if(this.props.tv.turned_on){
-            interruptor = 'onOff tvOn';
+        if(this.props.valve.opened){
+            interruptor = 'onOff waterOn';
         }else{
-            interruptor = 'onOff tvOff'
+            interruptor = 'onOff waterOff'
         }
 
 		return(
     		<div className="row list">
                 <div className="col-xs-9">
-                    <p className="name">{tv.name}</p>
-                    <p className="description">{tv.description}</p>
+                    <p className="name">{valve.name}</p>
+                    <p className="description">{valve.description}</p>
                 </div>
                 <div className="col-xs-3">
-                    <button className={interruptor} onClick={this.turnTv}></button>
+                    <button className={interruptor} onClick={this.switchValve}></button>
                 </div>
             </div>
 		)
