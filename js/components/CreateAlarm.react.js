@@ -1,7 +1,7 @@
 var React              = require('react');
 var router             = require('../router');
 var getSensors         = require('../actions/Actions').getMotionSensors;
-var Store              = require('../stores/Store');
+var ElementsStore      = require('../stores/ElementsStore');
 var ActivateSensor     = require('./ActivateSensor.react');
 var redirect           = require('../actions/RouteActions').redirect;
 var createAlarm        = require('../actions/Actions').createAlarm;
@@ -17,12 +17,12 @@ module.exports = React.createClass({
     getSensors();
   },
   componentDidMount: function() {
-    Store.addChangeListener(this._onChange);
+    ElementsStore.addChangeListener(this._onChange);
     getSensors();
   },
 
   componentWillUnmount: function() {
-    Store.removeChangeListener(this._onChange);
+    ElementsStore.removeChangeListener(this._onChange);
   },
   _onSubmit: function(e) {
         e.preventDefault();
@@ -37,7 +37,7 @@ module.exports = React.createClass({
   },
 
   _onChange: function() {
-    var sensors = Store.getMotionSensors();
+    var sensors = ElementsStore.getMotionSensors();
 
     this.setState({
       sensors: sensors,
@@ -82,22 +82,22 @@ module.exports = React.createClass({
             <div className="whiteBox">
               <p className="title gradient">CREAR NUEVA ALARMA</p>
               <hr/>
-                <div className="input-field col-xs-6  col-xs-offset-3 ">
+                <div className="input-field col-md-6  col-md-offset-3 ">
                   <input id="name" type="text" className="formText"/>
                   <label for="name">Nombre de la alarma</label>
                 </div>
                 <br/>
-                <div className="input-field col-xs-6  col-xs-offset-3 ">
+                <div className="input-field col-md-6  col-md-offset-3 ">
                   <input id="description" type="text" className="formText"/>
                   <label for="description">Descripción de la alarma</label>
                 </div>
-                <div className="input-field col-xs-6  col-xs-offset-3 ">
+                <div className="input-field col-md-6  col-md-offset-3 ">
                   <br/>
                   <p className="leftTitle">Seleccionar sensores:</p>
                   <div className="noPadding col-xs-12 ">{allSensors}</div>
                   <br/>
                 </div>
-                <div className="input-field col-xs-6  col-xs-offset-3 centered">
+                <div className="input-field col-md-6  col-md-offset-3 centered">
                   <button type="submit" className="newElementButton centered" onClick={this.newAlarm}>Crear</button>
                 </div>
              </div>

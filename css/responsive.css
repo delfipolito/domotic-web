@@ -1,0 +1,33 @@
+/**MEDIA SIZE*/
+
+@media (max-width: 767px) { /*Para monitores xs*/
+  .whiteBox {padding: 5px!important;}
+  .gradient {font-size: 18px!important;}
+  .onOff {
+    height: 40px!important;
+    width: 40px!important;
+  }
+  .buttonOff {
+    height: 30px!important;
+    width: 30px!important;
+    font-size: 30px!important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) { /*Para monitores sm*/
+}
+@media (min-width: 1600px){ /*Para monitores de resolucion muy grande*/
+}
+
+@media (min-width: 992px) and (max-width: 1200px){ /*Para monitores md*/
+}
+
+/* portrait */
+@media screen and (max-width: 767px) and (orientation:portrait) { /*para celulares vertical*/
+}
+/* landscape */
+@media screen and (max-width: 767px) and (orientation:landscape) {  /*para celulares horizontal*/
+
+}
+
+@media screen and (max-width: 991px) and (orientation:landscape){
+}

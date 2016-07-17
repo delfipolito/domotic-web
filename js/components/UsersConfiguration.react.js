@@ -57,7 +57,7 @@ module.exports = React.createClass({
               <div className="col-xs-12">
                 <button className="newElementButton pull-right" onClick={this.newUser}>+ Nuevo usuario</button>
               </div>
-              <div className="col-xs-8 col-xs-offset-2">{allUsers}</div>
+              <div className="col-md-8 col-md-offset-2">{allUsers}</div>
              </div>
           </form>
         </div>

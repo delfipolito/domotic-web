@@ -2,7 +2,7 @@ var React                    = require('react');
 var router                   = require('../router');
 var getTemperatureSensors    = require('../actions/Actions').getTemperatureSensors;
 var getHumiditySensors       = require('../actions/Actions').getHumiditySensors;
-var Store                    = require('../stores/Store');
+var ElementsStore                    = require('../stores/ElementsStore');
 var TemperatureSensor        = require('./TemperatureSensor.react.js');
 var HumiditySensor           = require('./HumiditySensor.react.js');
 
@@ -17,18 +17,18 @@ module.exports = React.createClass({
     getHumiditySensors();
   },
   componentDidMount: function() {
-    Store.addChangeListener(this._onChange);
+    ElementsStore.addChangeListener(this._onChange);
   },
 
   componentWillUnmount: function() {
-    Store.removeChangeListener(this._onChange);
+    ElementsStore.removeChangeListener(this._onChange);
   },
 
 
   _onChange: function() {
-    var temperatureSensors = Store.getTemperatureSensors();
-    var humiditySensors    = Store.getHumiditySensors();
-    console.log("hum", Store.getHumiditySensors());
+    var temperatureSensors = ElementsStore.getTemperatureSensors();
+    var humiditySensors    = ElementsStore.getHumiditySensors();
+    console.log("hum", ElementsStore.getHumiditySensors());
     this.setState({
       temperatureSensors: temperatureSensors,
       humiditySensors: humiditySensors,

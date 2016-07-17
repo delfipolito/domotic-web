@@ -1,5 +1,5 @@
 var React           = require('react');
-var Store           = require('../stores/Store');
+var ElementsStore   = require('../stores/ElementsStore');
 var SessionStore    = require('../stores/SessionStore');
 var redirect        = require('../actions/RouteActions').redirect;
 var getServerPhotos = require('../actions/Actions').getServerPhotos;
@@ -17,12 +17,12 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function() {
-    Store.addChangeListener(this._onChange);
+    ElementsStore.addChangeListener(this._onChange);
     SessionStore.addChangeListener(this._onChange);
   },
 
   componentWillUnmount: function() {
-    Store.removeChangeListener(this._onChange);
+    ElementsStore.removeChangeListener(this._onChange);
     SessionStore.removeChangeListener(this._onChange);
   },
   _onChange: function() {

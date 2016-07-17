@@ -3,17 +3,17 @@ var Constants     = require('../constants/Constants');
 var EventEmitter  = require('events').EventEmitter;
 var assign        = require('object-assign');
 
-var ActionTypes = Constants.ActionTypes;
-var CHANGE_EVENT = 'change';
-var router       = require('../router');
-var lights       = '';
-var tvs          = '';
-var alarms       = '';
+var ActionTypes        = Constants.ActionTypes;
+var CHANGE_EVENT       = 'change';
+var router             = require('../router');
+var lights             = '';
+var tvs                = '';
+var alarms             = '';
 var motionSensors      = '';
 var temperatureSensors = '';
 var humiditySensors    = '';
 
-var Store = assign({}, EventEmitter.prototype, {
+var ElementsStore = assign({}, EventEmitter.prototype, {
 
   emitChange: function() {
     this.emit(CHANGE_EVENT);
@@ -48,44 +48,39 @@ var Store = assign({}, EventEmitter.prototype, {
 
 });
 
-Store.dispatchToken = Dispatcher.register(function(payload) {
+ElementsStore.dispatchToken = Dispatcher.register(function(payload) {
 
   var action = payload.action;
 
   switch(action.actionType) {
     case ActionTypes.REDIRECT:
       router.transitionTo(action.route);
-      Store.emitChange();
+      ElementsStore.emitChange();
     break;
     case ActionTypes.SHOW_LIGHTS:
-      console.log("lightss", action.res.lights);
       lights = action.res.lights;
-      Store.emitChange();
+      ElementsStore.emitChange();
     break;
     case ActionTypes.SHOW_TVS:
-      console.log("tvs", action.res.tvs);
       tvs = action.res.tvs;
-      Store.emitChange();
+      ElementsStore.emitChange();
     break;
     case ActionTypes.SHOW_ALARMS:
-      console.log("alarms", action.res.alarms);
       alarms = action.res.alarms;
-      Store.emitChange();
+      ElementsStore.emitChange();
     break;
 
     case ActionTypes.SHOW_TEMPERATURE_SENSORS:
-      console.log("temperature_sensors", action.res.temperature_sensors);
       temperatureSensors = action.res.temperature_sensors;
-      Store.emitChange();
+      ElementsStore.emitChange();
     break;
     case ActionTypes.SHOW_HUMIDITY_SENSORS:
-      console.log("humidity_sensors", action.res.humidity_sensors);
       humiditySensors = action.res.humidity_sensors;
-      Store.emitChange();
+      ElementsStore.emitChange();
     break;
     case ActionTypes.SHOW_MOTION_SENSORS:
       motionSensors = action.res.motion_sensors;
-      Store.emitChange();
+      ElementsStore.emitChange();
     break;
 
     default:
@@ -95,4 +90,4 @@ Store.dispatchToken = Dispatcher.register(function(payload) {
   return true;
 });
 
-module.exports = Store;
+module.exports = ElementsStore;

@@ -26,19 +26,21 @@ var DefaultRoute   				= Router.DefaultRoute;
 var routes = (
   <Route handler={DomoticApp} path="/">
     <Route name='profile' path='/profile' handler={Profile} />
+    <Route name='login' path='/login' handler={Login} />
+    // CONFIGOURATION
     <Route name='users_configuration' path='/users_configuration' handler={UsersConfiguration} />
     <Route name='new_user' path='/new_user' handler={NewUser} />
     <Route name='configuration' path='/configuration' handler={Configuration} />
     <Route name='new_wifi' path='/new_wifi' handler={NewWifi} />
-
+    // ELEMENTS VIEWS
     <Route name='rooms'   path='/rooms' handler={Rooms} />
     <Route name='camera_view' path='/camera_view' handler={CameraView} />
     <Route name='temperatureSensors' path='/temperatureSensors' handler={TemperatureSensors} />
-
+    // SISTEMS
     <Route name='alarms' path='/alarms' handler={Alarms} />
     <Route name='irrigation_systems' path='/irrigation_systems' handler={IrrigationSystems} />
     <Route name='light_systems' path='/lights' handler={LightSystems} />
-
+    // CREATE SISTEMS
     <Route name='create_alarm' path='/create_alarms' handler={CreateAlarm} />
     <Route name='create_irrigation_system' path='/create_irrigation_systems' handler={CreateIrrigationSystem} />
     <Route name='create_light_system' path='/create_light_system' handler={CreateLightSystem} />

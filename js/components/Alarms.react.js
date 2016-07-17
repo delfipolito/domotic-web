@@ -1,7 +1,7 @@
 var React           = require('react');
 var router          = require('../router');
 var getAlarms       = require('../actions/Actions').getAlarms;
-var Store           = require('../stores/Store');
+var ElementsStore   = require('../stores/ElementsStore');
 var Alarm           = require('./Alarm.react.js');
 var redirect        = require('../actions/RouteActions').redirect;
 
@@ -15,16 +15,16 @@ module.exports = React.createClass({
     getAlarms();
   },
   componentDidMount: function() {
-    Store.addChangeListener(this._onChange);
+    ElementsStore.addChangeListener(this._onChange);
   },
 
   componentWillUnmount: function() {
-    Store.removeChangeListener(this._onChange);
+    ElementsStore.removeChangeListener(this._onChange);
   },
 
 
   _onChange: function() {
-    var alarms = Store.getAlarms();
+    var alarms = ElementsStore.getAlarms();
 
     this.setState({
       alarms: alarms,

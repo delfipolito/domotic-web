@@ -113,28 +113,28 @@ module.exports = React.createClass({
             <div className="whiteBox">
               <p className="title gradient">CREAR NUEVO SISTEMA DE LUZ</p>
               <hr/>
-                <div className="input-field col-xs-6  col-xs-offset-3 ">
+                <div className="input-field col-md-6  col-md-offset-3 ">
                   <input id="name" type="text" className="formText"/>
                   <label for="name">Nombre del sistema de luz</label>
                 </div>
                 <br/>
-                <div className="input-field col-xs-6  col-xs-offset-3 ">
+                <div className="input-field col-md-6  col-md-offset-3 ">
                   <input id="description" type="text" className="formText"/>
                   <label for="description">Descripción del sistema de luz</label>
                 </div>
-                <div className="input-field col-xs-6  col-xs-offset-3 ">
+                <div className="input-field col-md-6  col-md-offset-3 ">
                   <br/>
                   <p className="leftTitle">Seleccionar sensores:</p>
-                  <div className="noPadding col-xs-12 ">{allSensors}</div>
+                  <div className="noPadding col-md-12 ">{allSensors}</div>
                   <br/>
                 </div>
-                <div className="input-field col-xs-6  col-xs-offset-3 ">
+                <div className="input-field col-md-6  col-md-offset-3 ">
                   <br/>
                   <p className="leftTitle">Seleccionar luces:</p>
                   <div className="noPadding col-xs-12 ">{allLamps}</div>
                   <br/>
                 </div>
-                <div className="input-field col-xs-6  col-xs-offset-3 centered">
+                <div className="input-field col-md-6  col-md-offset-3 centered">
                   <button type="submit" className="newElementButton centered">Crear</button>
                 </div>
              </div>

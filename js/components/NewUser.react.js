@@ -53,29 +53,29 @@ module.exports = React.createClass({
             <div className="whiteBox">
               <p className="title gradient">NUEVO USUARIO</p>
               <hr/>
-              <div className="col-xs-12">
-                    <div className="input-field col-xs-6  col-xs-offset-3 ">
+              <div className="col-md-12">
+                    <div className="input-field col-md-6  col-md-offset-3 ">
                       <input id="name" type="text" className="formText" required/>
                       <label for="name">Nombre</label>
                     </div>
                     <br/>
-                    <div className="input-field col-xs-6  col-xs-offset-3 ">
+                    <div className="input-field col-md-6  col-md-offset-3 ">
                       <input id="last_name" type="text" className="formText" required/>
                       <label for="description">Apellido</label>
                     </div>
-                    <div className="input-field col-xs-6  col-xs-offset-3 ">
+                    <div className="input-field col-md-6  col-md-offset-3 ">
                       <input id="email" type="email" className="formText" required/>
                       <label for="description">Correo electronico</label>
                     </div>
-                    <div className="input-field col-xs-6  col-xs-offset-3 ">
+                    <div className="input-field col-md-6  col-md-offset-3 ">
                       <input id="password" type="password" className="formText" pattern=".{16,}"   required title=" minimo 16 caracteres" required/>
                       <label for="description">Contraseña</label>
                     </div>
-                    <div className="input-field col-xs-6  col-xs-offset-3 ">
+                    <div className="input-field col-md-6  col-md-offset-3 ">
                       <input id="password_confirmation" type="password" className="formText" pattern=".{16,}"   required title=" minimo 16 caracteres" required/>
                       <label for="description">Confirmar contraseña</label>
                     </div>
-                    <div className="input-field col-xs-6  col-xs-offset-3 centered">
+                    <div className="input-field col-md-6  col-md-offset-3 centered">
                       <button type="submit" className="newElementButton centered">Crear</button>
                     </div>
                </div>

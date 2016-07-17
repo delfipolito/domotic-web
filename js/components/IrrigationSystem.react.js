@@ -43,14 +43,14 @@ module.exports = React.createClass({
 
 		return(
     		<div className="row list">
-                <div className="col-xs-8">
+                <div className="col-sm-8 col-xs-6">
                     <p className="name">{irrigationSystem.name}</p>
                     <p className="description">{irrigationSystem.description}</p>
                 </div>
-                <div className="col-xs-2">
+                <div className="col-sm-2 col-xs-2">
                     <i className={enabledProp} onClick={this.enableIrrigationSystem}>power_settings_new</i>
                 </div>
-                <div className="col-xs-2">
+                <div className="col-xs-3 col-sm-2">
                     <div className={activeProp} ></div>
                 </div>
             </div>
