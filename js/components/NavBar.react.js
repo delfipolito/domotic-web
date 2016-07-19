@@ -66,25 +66,25 @@ module.exports = React.createClass({
     if(SessionStore.isLoggedIn()){
       return(
         <div className="">
-          <nav className="navbar navbar-default">
-            <div className="container-fluid">
-              <div className="navbar-header hidden-xs">
-                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <nav className="navbar navbar-default navHeight">
+            <div className="container-fluid navHeight">
+              <div className="navbar-header hidden-xs navHeight">
+                <button type="button" className="navbar-toggle collapsed navHeight" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                   <span className="sr-only">Toggle navigation</span>
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
-                <a className="navbar-brand" href="#">IntelliHome</a>
+                <a className="navbar-brand navHeight" href="#">IntelliHome</a>
               </div>
 
 
-                <ul className="nav navbar-nav navbar-right">
-                  <li className="icons" onClick={this.onClickAlarms}><a className="roundIcon security" href="#"></a></li>
-                  <li className="icons" onClick={this.onClickIrrigation}><a className="roundIcon water" href="#"></a></li>
-                  <li className="icons" onClick={this.onClickLights}><a className="roundIcon light" href="#"></a></li>
-                  <li className="icons" onClick={this.onClickRooms}><a className="roundIcon home" href="#"></a></li>
-                  <li className="dropdown icons">
+                <ul className="nav navbar-nav navbar-right navHeight">
+                  <li className="icons navHeight" onClick={this.onClickAlarms}><a className="roundIcon security" href="#"></a></li>
+                  <li className="icons navHeight" onClick={this.onClickIrrigation}><a className="roundIcon water" href="#"></a></li>
+                  <li className="icons navHeight" onClick={this.onClickLights}><a className="roundIcon light" href="#"></a></li>
+                  <li className="icons navHeight" onClick={this.onClickRooms}><a className="roundIcon home" href="#"></a></li>
+                  <li className="dropdown icons navHeight">
                     <a href="#" className="dropdown-toggle roundIcon user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
                     <ul className="dropdown-menu">
                       <li><a className="navbarLink" onClick={this.onClickUsersConfiguration}>Ver usuarios</a></li>

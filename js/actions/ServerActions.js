@@ -2,6 +2,13 @@ var Dispatcher  = require ('../dispatcher/Dispatcher');
 var ActionTypes   = require ('../constants/Constants').ActionTypes;
 
 module.exports = {
+	error: function(message, code) {
+		Dispatcher.handleServerAction({
+			actionType: ActionTypes.ERROR,
+			res: message,
+			code: code,
+		});
+	},
 	showUsers: function(users) {
 		Dispatcher.handleServerAction({
 			actionType: ActionTypes.SHOW_USERS,

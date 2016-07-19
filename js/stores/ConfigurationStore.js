@@ -2,6 +2,7 @@ var Dispatcher    = require('../dispatcher/Dispatcher');
 var Constants     = require('../constants/Constants');
 var EventEmitter  = require('events').EventEmitter;
 var assign        = require('object-assign');
+var redirect      = require('../actions/RouteActions').redirect;
 
 var ActionTypes   = Constants.ActionTypes;
 var CHANGE_EVENT  = 'change';
@@ -41,6 +42,17 @@ ConfigurationStore.dispatchToken = Dispatcher.register(function(payload) {
     break;
     case ActionTypes.SHOW_WIFI:
       wifi = action.res.network_configurations;
+      ConfigurationStore.emitChange();
+    break;
+    case ActionTypes.ERROR:
+      if(action.code==401){
+        localStorage.removeItem('Authorization');
+        redirect('login');
+      }else{
+        _errorMessage = action.res;
+        _errorCode = action.code;
+      }
+
       ConfigurationStore.emitChange();
     break;
 

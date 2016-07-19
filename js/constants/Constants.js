@@ -23,6 +23,7 @@ module.exports = {
     SHOW_LAMPS: null,
     SHOW_USERS: null,
     SHOW_WIFI: null,
+    ERROR: null,
   }),
 
   PayloadSources: keyMirror({

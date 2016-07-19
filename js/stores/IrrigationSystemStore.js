@@ -2,6 +2,7 @@ var Dispatcher    = require('../dispatcher/Dispatcher');
 var Constants     = require('../constants/Constants');
 var EventEmitter  = require('events').EventEmitter;
 var assign        = require('object-assign');
+var redirect      = require('../actions/RouteActions').redirect;
 
 var ActionTypes       = Constants.ActionTypes;
 var CHANGE_EVENT      = 'change';
@@ -58,6 +59,17 @@ IrrigationSystemStore.dispatchToken = Dispatcher.register(function(payload) {
     case ActionTypes.SHOW_VALVES:
       console.log("irrigation_sensors", action.res.valves);
       valves = action.res.valves;
+      IrrigationSystemStore.emitChange();
+    break;
+    case ActionTypes.ERROR:
+      if(action.code==401){
+        localStorage.removeItem('Authorization');
+        redirect('login');
+      }else{
+        _errorMessage = action.res;
+        _errorCode = action.code;
+      }
+
       IrrigationSystemStore.emitChange();
     break;
     default:

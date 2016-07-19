@@ -3,7 +3,7 @@ var Constants    = require('../constants/Constants');
 var EventEmitter = require('events').EventEmitter;
 var assign       = require('object-assign');
 var router       = require('../router');
-
+var redirect     = require('../actions/RouteActions').redirect;
 var ActionTypes  = Constants.ActionTypes;
 var CHANGE_EVENT = 'change';
 
@@ -88,9 +88,14 @@ SessionStore.dispatchToken = Dispatcher.register(function(payload) {
     break;
 
     case ActionTypes.ERROR:
-      _resetPassword = false;
-      _errorMessage = action.res;
-      _errorCode = action.code;
+      if(action.code==401){
+        localStorage.removeItem('Authorization');
+        redirect('login');
+      }else{
+        _errorMessage = action.res;
+        _errorCode = action.code;
+      }
+
       SessionStore.emitChange();
     break;
 
@@ -111,19 +116,6 @@ SessionStore.dispatchToken = Dispatcher.register(function(payload) {
     break;
 
     case ActionTypes.LOGOUT:
-      _resetPassword = false;
-      _currentID = '';
-      _authToken = '';
-      _adminID = '';
-      _adminMail = '';
-      localStorage.removeItem('authToken');
-      localStorage.removeItem('adminID');
-      localStorage.removeItem('adminMail');
-      localStorage.removeItem('isSuper');
-      localStorage.removeItem('entityId');
-      localStorage.removeItem('contactId');
-      localStorage.removeItem('areaId');
-      localStorage.removeItem('serviceId');
 
       SessionStore.emitChange();
     break;
@@ -138,12 +130,6 @@ SessionStore.dispatchToken = Dispatcher.register(function(payload) {
           _adminMail = '';
           localStorage.removeItem('authToken');
           localStorage.removeItem('adminID');
-          localStorage.removeItem('adminMail');
-          localStorage.removeItem('isSuper');
-          localStorage.removeItem('entityId');
-          localStorage.removeItem('contactId');
-          localStorage.removeItem('areaId');
-          localStorage.removeItem('serviceId');
 
           router.transitionTo('login');
         }

@@ -36,7 +36,9 @@
   color: grey;
   cursor: pointer;
 }
-
+.navHeight{
+	height: 100px;
+}
 .buttonOn{
   height: 50px;
   width: 50px;
@@ -99,10 +101,12 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 60px;
-  width: 60px;
+  height: 90px;
+  width: 90px;
 }
-
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+	background-color: transparent;
+}
 .gradient{
 	background: -webkit-linear-gradient(left, #ff0083, #3f2366);
   -webkit-background-clip: text;

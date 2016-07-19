@@ -4,6 +4,7 @@ var APIEndpoints        = Constants.APIEndpoints;
 var redirect            = require('../actions/RouteActions').redirect;
 var RouteStore          = require('../stores/RouteStore');
 var ElementsStore       = require('../stores/ElementsStore');
+var error               = require('../actions/ServerActions').error;
 var showUsers           = require('../actions/ServerActions').showUsers;
 var showWifi            = require('../actions/ServerActions').showWifi;
 var showRooms           = require('../actions/ServerActions').showRooms;
@@ -47,7 +48,12 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-        showUsers(text);
+				if(res.status<400){
+					showUsers(text);
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
+
 
       });
   },
@@ -59,8 +65,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-        this.getUsers();
-
+				if(res.status<400){
+					this.getUsers();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
       }.bind(this));
   },
 	createUser: function(user) {
@@ -73,8 +82,12 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-        this.getUsers();
-				redirect('users_configuration');
+				if(res.status<400){
+					this.getUsers();
+					redirect('users_configuration');
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       }.bind(this));
   },
@@ -88,7 +101,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-        showWifi(text);
+				if(res.status<400){
+					showWifi(text);
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       });
   },
@@ -100,7 +117,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-        this.getWifi();
+				if(res.status<400){
+					this.getWifi();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       }.bind(this));
   },
@@ -113,7 +134,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-				redirect('configuration');
+				if(res.status<400){
+					redirect('configuration');
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       }.bind(this));
   },
@@ -123,7 +148,11 @@ module.exports = {
       .set('Accept', 'application/json')
       .set('Authorization', localStorage.getItem('Authorization'))
       .end(function(res) {
-        this.getWifi();
+				if(res.status<400){
+					this.getWifi();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       }.bind(this));
   },
@@ -136,8 +165,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-				console.log("HABITACIONES", text);
-        showRooms(text);
+				if(res.status<400){
+					showRooms(text);
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       });
   },
@@ -151,9 +183,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-        console.log("lights", res);
-
-          showLights(text);
+				if(res.status<400){
+					showLights(text);
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       });
   },
@@ -165,9 +199,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-        console.log("lights", res);
-
-          this.getRooms();
+				if(res.status<400){
+					this.getRooms();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       }.bind(this));
   },
@@ -179,9 +215,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-        console.log("lights", res);
-
-          this.getRooms();
+				if(res.status<400){
+					this.getRooms();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       }.bind(this));
   },
@@ -196,9 +234,11 @@ module.exports = {
         console.log("tvs", res);
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-
-          showTvs(text);
-
+				if(res.status<400){
+					showTvs(text);
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
       });
   },
   switchTvOn: function(id) {
@@ -209,10 +249,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-        console.log("tvs", res);
-
-          this.getRooms();
-
+				if(res.status<400){
+					this.getRooms();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
       }.bind(this));
   },
   switchTvOff: function(id) {
@@ -223,9 +264,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-
-          this.getRooms();
-
+				if(res.status<400){
+					this.getRooms();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
       }.bind(this));
   },
 	openValve: function(id) {
@@ -236,9 +279,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-        console.log("valves", res);
-
-          this.getRooms();
+				if(res.status<400){
+					this.getRooms();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       }.bind(this));
   },
@@ -250,9 +295,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-        console.log("valves", res);
-
-          this.getRooms();
+				if(res.status<400){
+					this.getRooms();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       }.bind(this));
   },
@@ -265,9 +312,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-
-          showAlarms(text);
-
+				if(res.status<400){
+					showAlarms(text);
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
       });
   },
 	createAlarm: function(data) {
@@ -280,8 +329,11 @@ module.exports = {
 			.end(function(res) {
 				var text = JSON.parse(res.text);
 				var code = JSON.parse(res.status);
+				if(res.status<400){
 					redirect('alarms');
-
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
       });
   },
   enableAlarm: function(id) {
@@ -292,9 +344,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-
-        this.getAlarms();
-
+				if(res.status<400){
+					this.getAlarms();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
       }.bind(this));
   },
   desableAlarm: function(id) {
@@ -305,9 +359,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-
-          this.getAlarms();
-
+				if(res.status<400){
+					this.getAlarms();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
       }.bind(this));
   },
 
@@ -319,9 +375,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-
-          showMotionSensors(text);
-
+				if(res.status<400){
+					showMotionSensors(text);
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
       });
   },
 
@@ -334,8 +392,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-
-       showLightSistems(text);
+				if(res.status<400){
+					showLightSistems(text);
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       });
   },
@@ -349,8 +410,11 @@ module.exports = {
 			.end(function(res) {
 				var text = JSON.parse(res.text);
 				var code = JSON.parse(res.status);
+				if(res.status<400){
 					redirect('light_systems');
-
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
       });
   },
 
@@ -362,8 +426,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-
-          this.getLightSystems();
+				if(res.status<400){
+					this.getLightSystems();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       }.bind(this));
   },
@@ -375,8 +442,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-
-          this.getLightSystems();
+				if(res.status<400){
+					this.getLightSystems();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       }.bind(this));
   },
@@ -389,9 +459,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-				console.log(res);
-          showLightSensors(text);
-
+				if(res.status<400){
+					showLightSensors(text);
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
       });
   },
 
@@ -403,9 +475,11 @@ module.exports = {
 			.end(function(res) {
 				var text = JSON.parse(res.text);
 				var code = JSON.parse(res.status);
-				console.log("lights", res);
-
+				if(res.status<400){
 					showLamps(text);
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
 			});
    },
@@ -418,9 +492,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-
-          showIrrigationSistems(text);
-
+				if(res.status<400){
+					showIrrigationSistems(text);
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
       });
   },
 	createIrrigationSystem: function(data) {
@@ -433,8 +509,11 @@ module.exports = {
 			.end(function(res) {
 				var text = JSON.parse(res.text);
 				var code = JSON.parse(res.status);
+				if(res.status<400){
 					redirect('irrigation_systems');
-
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
       });
   },
 
@@ -446,8 +525,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-
-          this.getIrrigationSystems();
+				if(res.status<400){
+					this.getIrrigationSystems();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       }.bind(this));
   },
@@ -459,8 +541,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-
-          this.getIrrigationSystems();
+				if(res.status<400){
+					this.getIrrigationSystems();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       }.bind(this));
   },
@@ -472,8 +557,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-				console.log(res);
-          showIrrigationSensors(text);
+				if(res.status<400){
+					showIrrigationSensors(text);
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
       });
   },
@@ -486,9 +574,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-				console.log(res);
-          showValves(text);
-
+				if(res.status<400){
+					showValves(text);
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
       });
   },
 
@@ -501,9 +591,11 @@ module.exports = {
       .end(function(res) {
         var text = JSON.parse(res.text);
         var code = JSON.parse(res.status);
-
-          showTemperatureSensors(text);
-
+				if(res.status<400){
+					showTemperatureSensors(text);
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
       });
   },
 
@@ -516,8 +608,11 @@ module.exports = {
 			.end(function(res) {
 				var text = JSON.parse(res.text);
 				var code = JSON.parse(res.status);
-
+				if(res.status<400){
 					showHumiditySensors(text);
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
 
 			});
 	},
