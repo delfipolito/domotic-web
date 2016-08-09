@@ -52,6 +52,9 @@ module.exports = {
 	getLamps: function() {
 		DomoticAPIUtils.getLamps();
 	},
+	updateLightSystem(threshold, id){
+		DomoticAPIUtils.updateLightSystem(threshold, id);
+	},
 
 
 	// SISTEMA DE ALARMAS
@@ -70,6 +73,9 @@ module.exports = {
 		}else{
 			DomoticAPIUtils.enableAlarm(id);
 		}
+	},
+	desactivateAlarm: function(id){
+		DomoticAPIUtils.desactivateAlarm(id);
 	},
 
 // SISTEMA DE RIEGO
@@ -91,6 +97,9 @@ module.exports = {
 	},
 	getValves: function() {
 		DomoticAPIUtils.getValves();
+	},
+	updateIrrigationSystem(threshold, id){
+		DomoticAPIUtils.updateIrrigationSystem(threshold, id);
 	},
 
 	// SENSORES

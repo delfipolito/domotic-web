@@ -24,7 +24,7 @@ module.exports = React.createClass({
     componentDidMount: function() {
 
         SessionStore.addChangeListener(this._onChange);
-        
+
         $('.loginContainer').css("height", $( window ).height());
 
     },
@@ -109,7 +109,7 @@ module.exports = React.createClass({
 
 		return(
 			<div className="loginContainer valign-wrapper">
-            <div className="col-sm-6 col-sm-offset-3 valign loginBlock centered ">
+            <div className="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 valign loginBlock centered ">
     			<div className={classMessage}>{this.state.message}</div>
                 <form onSubmit={this._onSubmit} className="centered">
                     <div className={this.state.realForm}>

@@ -1,5 +1,5 @@
 var keyMirror = require('keymirror');
-var Root2      = "http://192.168.0.10:3000/api/v1/";
+var Root2      = "http://192.168.1.177:3000/api/v1/";
 var Root       = "http://domotic-server.herokuapp.com/api/v1/";
 var APIRoot   = Root + "/web";
 
@@ -32,6 +32,6 @@ module.exports = {
   }),
 
   APIEndpoints: {
-    PUBLIC:      Root
+    PUBLIC:      Root2
   }
 };

@@ -366,6 +366,21 @@ module.exports = {
 				}
       }.bind(this));
   },
+	desactivateAlarm: function(id) {
+    request
+      .post(APIEndpoints.PUBLIC + 'alarms/' + id +'/inactivate')
+      .set('Accept', 'application/json')
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .end(function(res) {
+        var text = JSON.parse(res.text);
+        var code = JSON.parse(res.status);
+				if(res.status<400){
+					this.getAlarms();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
+      }.bind(this));
+  },
 
   getMotionSensors: function() {
     request
@@ -416,6 +431,22 @@ module.exports = {
 					error("Ha ocurrido un error", res.status);
 				}
       });
+  },
+	updateLightSystem: function(threshold, id){
+    request
+			.patch(APIEndpoints.PUBLIC + 'lighting_systems/' + id)
+			.send({lighting_system: {luminosity_threshold: threshold}})
+			.set('Accept', 'application/json')
+			.set('Authorization', localStorage.getItem('Authorization'))
+			.end(function(res) {
+				var text = JSON.parse(res.text);
+				var code = JSON.parse(res.status);
+				if(res.status<400){
+					this.getLightSystems();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
+      }.bind(this));
   },
 
 	enableLightSystem: function(id) {
@@ -498,6 +529,22 @@ module.exports = {
 					error("Ha ocurrido un error", res.status);
 				}
       });
+  },
+	updateIrrigationSystem: function(threshold, id){
+    request
+			.patch(APIEndpoints.PUBLIC + 'irrigation_systems/' + id)
+			.send({irrigation_system: {humidity_threshold: threshold}})
+			.set('Accept', 'application/json')
+			.set('Authorization', localStorage.getItem('Authorization'))
+			.end(function(res) {
+				var text = JSON.parse(res.text);
+				var code = JSON.parse(res.status);
+				if(res.status<400){
+					this.getIrrigationSystems();
+				}else{
+					error("Ha ocurrido un error", res.status);
+				}
+      }.bind(this));
   },
 	createIrrigationSystem: function(data) {
 		console.log(data, "DATA");
